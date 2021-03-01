@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>LEAP: LEarning Articulated occupancy of People</title>
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <!-- nice figures  -->
+      <link rel="stylesheet" href="css/font-awesome.css">
+      <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110417665-2"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', 'UA-110417665-2');
+      </script>
+   </head>
+   <body id="page-top">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">LEAP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#video">Video</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#code">Code</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#models">Models</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#pubs">Publications</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <header class="bg-light text-black">
+         <div class="container text-center">
+            <h1>LEAP </h1>
+            <h2>Learning Articulated Occupancy of People</h2>
+            <!-- <br> -->
+            <p class="lead"><i>LEAP is a neural network architecture for representing volumetric animatable human bodies.</i>
+            </p>
+         </div>
+      </header>
+      <section id="about" class="about-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <p class="lead">
+                     Inspired by traditional human body models techniques, LEAP models human bodies in the canonical pose and is controlled through
+                     carefully designed latent codes that encode shape and pose dependent deformations.
+
+                     The whole model is end-to-end differentiable and compatible with optimization and deep learning pipelines.
+                     <!-- where linear blend skinning (LBS) functions are usually applied to drive the deformation of a human body from a canonical space to a posed space.  -->
+                  </p>
+                  <br> <br>
+                   <div class="img-wide text-center">
+                     <!-- <p><img class="img-fluid" alt="teaser" src="https://via.placeholder.com/1500x600"></p> -->
+                     <p><img class="img-fluid" alt="teaser" src="images/teaser figure ppl.png"></p>
+                  </div>
+                  <br><br>
+                  <h3>Overview</h3>
+                  <p class="lead">
+                     We introduce a novel deep neural network which, given a set of bone transformations (joint locations and rotations) and a query point in space,
+                     first maps the query point to a canonical space via learned backward linear blend skinning (LBS) weights and then efficiently queries the occupancy value via an occupancy network that models accurate identity and pose dependent deformations in the canonical space.
+                  </p>
+                  <p class="lead">
+                     To account for the undefined skinning weights for the points
+                     that are not on the surface of a human body, LEAP leverages
+                     the consistency relationship between the forward LBS
+                     and the backward LBS weights and incorporates cycle-distance
+                     based features into the occupancy network.
+                     <!-- , largely eliminating
+                     shape artifacts on unseen shapes and extreme poses. -->
+                  </p>
+                  <p class="lead">
+                     LEAP captures accurate identify-dependent and pose-dependent
+                     deformations through advanced encoding schemes that
+                     incorporate prior knowledge about the kinematic structure
+                     and plausible shape of a human body.
+                     <!-- In a combination with learned local point features, our method is able to represent accurate and expressive local shape deformations. -->
+
+                     <!-- Furthermore, for every query point, we use the learned
+                     LBS weights to construct a local feature representation
+                     that captures accurate local shape deformations. -->
+                  </p>
+                  <br> <br>
+                  <div class="text-center">
+                     <p><img class="img-fluid" alt="method overview" src="images/pipeline.svg"></p>
+                  </div>
+                  <br><br> <br>
+                  <!-- <h4>Use-case</h4> -->
+                  <p class="lead">
+                     We release a pretrained LEAP that generalizes to unseen human bodies and poses
+                     and which could be easily integrated into learning pipelines that require
+                     an efficient occupancy check to resolve collisions with other objects or environment.
+                  </p>
+                  <!-- <p class="lead">
+                     LEAP could be easily integrated into learning pipelines that require an efficient occupancy check to resolve collisions with other objects or environment through a proposed point-based loss.
+                  </p> -->
+                  <br> <br>
+                  <div class="text-center">
+                     <p><img class="img-fluid" alt="Realistic human bodies" src="images/LEAP optimization.svg"></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="video" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <!-- <h2 class="section-title-tc">Video</h2> -->
+                  <!-- <p class="lead"><a class="publink" >Coming soon ...</a></p> -->
+                  <!-- 16:9 aspect ratio -->
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src=""></iframe>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="code" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">
+                    <a class="publink" href="https://github.com/neuralbodies/leap" target="_blank" style="text-decoration: none">Code <i class="fa fa-github"></i></a>
+                  </h2>
+                  <!-- <p class="lead"><a class="publink" >Coming soon ...</a></p> -->
+
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="models" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Models</h2>
+                  <!-- <p class="lead"><a class="publink" >Coming soon ...</a></p> -->
+                  <p class="lead">Coming soon ...</p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="pubs" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Publications</h2>
+                  <br>
+                  Marko Mihajlovic, Yan Zhang, Michael J. Black,  Siyu Tang<br>
+                  <a class="publink" target="_blank" href="https://www.arxiv...."><b>
+                    LEAP: Learning articulated occupancy of people</b><br></a>
+                    ArXiv ...
+                  <br><br>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="team" class="team-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Team</h2>
+                  <div class="row">
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                           <div class="mainflip">
+                                 <div class="card">
+                                    <div class="card-body text-center">
+                                       <p><img class=" img-fluid" src="images/avatars/cropped/marko.jpg" alt="card image"></p>
+                                       <h4 class="card-title">Marko Mihajlovic</h4>
+                                       <ul class="list-inline">
+                                         <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/marko_mih">
+                                            <i class="fa fa-twitter"></i>
+                                            </a>
+                                         </li>
+                                         <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/marko-mihajlovic/">
+                                            <i class="fa fa-linkedin"></i>
+                                            </a>
+                                         </li>
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://github.com/marko-mih/">
+                                             <i class="fa fa-github"></i>
+                                             </a>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                           </div>
+                     </div>
+
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                        <div class="mainflip">
+                              <div class="card">
+                                 <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/avatars/cropped/yan.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Yan <br> Zhang</h4>
+                                    <ul class="list-inline">
+                                      <li class="list-inline-item">
+                                         <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/cnsdqzyz">
+                                         <i class="fa fa-twitter"></i>
+                                         </a>
+                                      </li>
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/michael-j-black-41751114/">
+                                          <i class="fa fa-linkedin"></i>
+                                          </a>
+                                       </li>
+                                       <!-- <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="#">
+                                          <i class="fa fa-github"></i>
+                                          </a>
+                                       </li> -->
+                                    </ul>
+                                 </div>
+                              </div>
+                        </div>
+                     </div>
+
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                        <div class="mainflip">
+                              <div class="card">
+                                 <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/avatars/cropped/michael.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Michael J. Black</h4>
+                                    <ul class="list-inline">
+                                      <li class="list-inline-item">
+                                         <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/Michael_J_Black">
+                                         <i class="fa fa-twitter"></i>
+                                         </a>
+                                      </li>
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/yan-zhang-3119b11a/">
+                                          <i class="fa fa-linkedin"></i>
+                                          </a>
+                                       </li>
+                                       <!-- <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="#">
+                                          <i class="fa fa-github"></i>
+                                          </a>
+                                       </li> -->
+                                    </ul>
+                                 </div>
+                              </div>
+                        </div>
+                     </div>
+
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                        <div class="mainflip">
+                              <div class="card">
+                                 <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/avatars/cropped/siyu.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Siyu <br> Tang</h4>
+                                    <ul class="list-inline">
+                                      <li class="list-inline-item">
+                                         <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/SiyuTang3">
+                                         <i class="fa fa-twitter"></i>
+                                         </a>
+                                      </li>
+                                       <!-- <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="#">
+                                          <i class="fa fa-github"></i>
+                                          </a>
+                                       </li> -->
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/siyu-tang-06875324/">
+                                          <i class="fa fa-linkedin"></i>
+                                          </a>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+         <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; LEAP 2021</p>
+         </div>
+         <!-- /.container -->
+      </footer>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Plugin JavaScript -->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Custom JavaScript for this theme -->
+      <script src="js/scrolling-nav.js"></script>
+   </body>
+</html>
