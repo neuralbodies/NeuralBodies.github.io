@@ -3,16 +3,16 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="[CVPR 2021] LEAP: Learning articulated occupancy of people">
+      <meta name="description" content="LEAP is a neural network architecture for representing volumetric animatable human bodies.">
       <meta name="author" content="Marko Mihajlovic">
       <title>LEAP: LEarning Articulated occupancy of People</title>
-      <meta property="og:title" content="LEAP: Learning articulated occupancy of people" />
-      <meta property="og:description" content="[CVPR 2021] LEAP: Learning articulated occupancy of people">
+      <meta property="og:title" content="[CVPR 2021] LEAP: Learning Articulated Occupancy of People" />
+      <meta property="og:description" content="LEAP is a neural network architecture for representing volumetric animatable human bodies.">
       <meta property="og:image" content="https://neuralbodies.github.io/LEAP/images/teaser1200x630.jpg" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="LEAP: Learning articulated occupancy of people" />
-      <meta name="twitter:description" content="[CVPR 2021] LEAP: Learning articulated occupancy of people" />
+      <meta name="twitter:title" content="[CVPR 2021] LEAP: Learning Articulated Occupancy of People" />
+      <meta name="twitter:description" content="LEAP is a neural network architecture for representing volumetric animatable human bodies." />
       <meta name="twitter:image" content="https://neuralbodies.github.io/LEAP/images/teaser1200x630.jpg" />
       <meta name="twitter:image:alt" content="LEAP CVPR 2021" />
       <!-- Bootstrap core CSS -->
@@ -68,7 +68,7 @@
             <h1>LEAP </h1>
             <h2>Learning Articulated Occupancy of People</h2>
             <!-- <br> -->
-            <p class="lead"><i>LEAP is a neural network architecture for representing volumetric animatable human bodies.</i>
+            <p class="lead"><i>LEAP is a neural network architecture for representing volumetric animatable human bodies. It follows traditional human body modeling techniques and leverages statistical human prior to generalize to unseen humans.</i>
             </p>
          </div>
       </header>
@@ -77,8 +77,8 @@
             <div class="row">
                <div class="col-lg-10 mx-auto">
                   <p class="lead">
-                     Inspired by traditional human body models techniques, LEAP models human bodies in the canonical pose and is controlled through
-                     carefully designed latent codes that encode shape and pose dependent deformations.
+                     Inspired by traditional human body modeling techniques, LEAP models human bodies in the canonical pose and is controlled through
+                     carefully designed latent codes that encode shape- and pose-dependent deformations.
 
                      The whole model is end-to-end differentiable and compatible with optimization and deep learning pipelines.
                      <!-- where linear blend skinning (LBS) functions are usually applied to drive the deformation of a human body from a canonical space to a posed space.  -->
@@ -92,42 +92,32 @@
                   <h3>Overview</h3>
                   <p class="lead">
                      We introduce a novel deep neural network which, given a set of bone transformations (joint locations and rotations) and a query point in space,
-                     first maps the query point to a canonical space via learned backward linear blend skinning (LBS) weights and then efficiently queries the occupancy value via an occupancy network that models accurate identity and pose dependent deformations in the canonical space.
+                     first maps the query point to a canonical space via learned inverse linear blend skinning (LBS) weights and then efficiently queries the occupancy value via an occupancy network that models accurate identity and pose dependent deformations in the canonical space.
                   </p>
                   <p class="lead">
                      To account for the undefined skinning weights for the points
                      that are not on the surface of a human body, LEAP leverages
                      the consistency relationship between the forward LBS
-                     and the backward LBS weights and incorporates cycle-distance
-                     based features into the occupancy network.
-                     <!-- , largely eliminating
-                     shape artifacts on unseen shapes and extreme poses. -->
+                     and the inverse LBS weights and incorporates cycle-distance
+                     into the occupancy network.
                   </p>
                   <p class="lead">
-                     LEAP captures accurate identify-dependent and pose-dependent
+                     LEAP captures accurate identify- and pose-dependent
                      deformations through advanced encoding schemes that
                      incorporate prior knowledge about the kinematic structure
                      and plausible shape of a human body.
-                     <!-- In a combination with learned local point features, our method is able to represent accurate and expressive local shape deformations. -->
-
-                     <!-- Furthermore, for every query point, we use the learned
-                     LBS weights to construct a local feature representation
-                     that captures accurate local shape deformations. -->
                   </p>
                   <br> <br>
                   <div class="text-center">
-                     <p><img class="img-fluid" alt="method overview" src="images/pipeline.svg"></p>
+                     <p><img class="img-fluid" alt="method overview" src="images/pipeline_new.svg"></p>
                   </div>
                   <br><br> <br>
                   <!-- <h4>Use-case</h4> -->
                   <p class="lead">
-                     We release a pretrained LEAP that generalizes to unseen human bodies and poses
+                     We release a pretrained LEAP that generalizes to unseen human bodies
                      and which could be easily integrated into learning pipelines that require
-                     an efficient occupancy check to resolve collisions with other objects or environment.
+                     an efficient occupancy check to resolve collisions with other geometries flexibliy represented as point clounds.
                   </p>
-                  <!-- <p class="lead">
-                     LEAP could be easily integrated into learning pipelines that require an efficient occupancy check to resolve collisions with other objects or environment through a proposed point-based loss.
-                  </p> -->
                   <br> <br>
                   <div class="text-center">
                      <p><img class="img-fluid" alt="Realistic human bodies" src="images/LEAP optimization.svg"></p>
@@ -158,8 +148,6 @@
                   <h2 class="section-title-tc">
                     <a class="publink" href="https://github.com/neuralbodies/leap" target="_blank" style="text-decoration: none">Code <i class="fa fa-github"></i></a>
                   </h2>
-                  <!-- <p class="lead"><a class="publink" >Coming soon ...</a></p> -->
-
                </div>
             </div>
          </div>
@@ -179,12 +167,12 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-10 mx-auto">
-                  <h2 class="section-title-tc">Publications</h2>
+                  <h2 class="section-title-tc">Publication</h2>
                   <br>
                   Marko Mihajlovic, Yan Zhang, Michael J. Black,  Siyu Tang<br>
                   <a class="publink" target="_blank" href="https://www.arxiv...."><b>
-                    LEAP: Learning articulated occupancy of people</b><br></a>
-                    ArXiv ...
+                    LEAP: Learning Articulated Occupancy of People</b><br></a>
+                    Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2021
                   <br><br>
                </div>
             </div>
@@ -213,11 +201,16 @@
                                             <i class="fa fa-linkedin"></i>
                                             </a>
                                          </li>
-                                          <li class="list-inline-item">
-                                             <a class="social-icon text-xs-center" target="_blank" href="https://github.com/marko-mih/">
+                                         <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="http://markomih.github.io/">
+                                            <i class="fa fa-user"></i>
+                                            </a>
+                                         </li>
+                                          <!-- <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://github.com/markomih/">
                                              <i class="fa fa-github"></i>
                                              </a>
-                                          </li>
+                                          </li> -->
                                        </ul>
                                     </div>
                                  </div>
@@ -237,15 +230,10 @@
                                          </a>
                                       </li>
                                        <li class="list-inline-item">
-                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/michael-j-black-41751114/">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/yan-zhang-3119b11a/">
                                           <i class="fa fa-linkedin"></i>
                                           </a>
                                        </li>
-                                       <!-- <li class="list-inline-item">
-                                          <a class="social-icon text-xs-center" target="_blank" href="#">
-                                          <i class="fa fa-github"></i>
-                                          </a>
-                                       </li> -->
                                     </ul>
                                  </div>
                               </div>
@@ -265,15 +253,10 @@
                                          </a>
                                       </li>
                                        <li class="list-inline-item">
-                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/yan-zhang-3119b11a/">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/michael-j-black-41751114/">
                                           <i class="fa fa-linkedin"></i>
                                           </a>
                                        </li>
-                                       <!-- <li class="list-inline-item">
-                                          <a class="social-icon text-xs-center" target="_blank" href="#">
-                                          <i class="fa fa-github"></i>
-                                          </a>
-                                       </li> -->
                                     </ul>
                                  </div>
                               </div>
@@ -292,11 +275,6 @@
                                          <i class="fa fa-twitter"></i>
                                          </a>
                                       </li>
-                                       <!-- <li class="list-inline-item">
-                                          <a class="social-icon text-xs-center" target="_blank" href="#">
-                                          <i class="fa fa-github"></i>
-                                          </a>
-                                       </li> -->
                                        <li class="list-inline-item">
                                           <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/siyu-tang-06875324/">
                                           <i class="fa fa-linkedin"></i>
