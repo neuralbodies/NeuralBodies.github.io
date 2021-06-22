@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="MetaAvatar is meta-learned model that represents generalizable and controllable neural signed distance fields (SDFs) for clothed humans.">
+      <meta name="author" content="Shaofei Wang">
+      <title>MetaAvatar: Learning Animatable Clothed Human Models from Few Depth Images</title>
+      <meta property="og:title" content="MetaAvatar: Learning Animatable Clothed Human Models from Few Depth Images" />
+      <meta property="og:description" content="MetaAvatar is meta-learned model that represents generalizable and controllable neural signed distance fields (SDFs) for clothed humans.">
+      <meta property="og:image" content="https://neuralavatars.github.io/metavatar/images/teaser1200x880.png" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="MetaAvatar: Learning Animatable Clothed Human Models from Few Depth Images" />
+      <meta name="twitter:description" content="MetaAvatar is meta-learned model that represents generalizable and controllable neural signed distance fields (SDFs) for clothed humans." />
+      <meta name="twitter:image" content="https://neuralavatars.github.io/metavatar/images/teaser1200x880.png" />
+      <meta name="twitter:image:alt" content="MetaAvatar" />
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <!-- nice figures  -->
+      <link rel="stylesheet" href="css/font-awesome.css">
+      <link rel="icon" type="image/png" href="images/favicon.png">
+
+   </head>
+   <body id="page-top">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">MetaAvatar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#results">Results</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#code">Code</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#pubs">Technical Report</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <header class="bg-light text-black">
+         <div class="container text-center">
+            <h1>MetaAvatar </h1>
+            <h2>Learning Animatable Clothed Human Models from Few Depth Images</h2>
+            <!-- <br> -->
+            <p class="lead"><i>MetaAvatar is meta-learned model that represents generalizable and controllable neural signed distance fields (SDFs) for clothed humans. It can be fast fine-tuned to represent unseen subjects given as few as 8 monocular depth images.</i>
+            </p>
+         </div>
+      </header>
+      <section id="about" class="about-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <p class="lead text-justify">
+		     Inspired by recent advances in meta-learned initializations for neural implicit representations, we propose to use meta-learning to effectively
+		     incorporate cloth-deformation priors for clothed humans, thus enabling fast fine-tuning (few minutes) for generating neural avatars given only 
+		     a few monocular depth images of unseen clothed humans and their corresponding SMPL fittings as inputs.
+                  </p>
+                  <div class="img-wide text-center">
+                     <p><img class="img-fluid" alt="teaser" src="images/teaser1200x880.png" width=700></p>
+                  </div>
+                  <br><br>
+                  <h3>Overview</h3>
+                  <p class="lead text-justify">
+		     We follow the same pipeline of recently proposed <a href="https://scanimate.is.tue.mpg.de/">SCANimate</a>, which learns dynamic neural SDFs
+		     from dense full-body scans to represent subject/cloth-type specific avatars of clothed humans.  Instead of learning subject/cloth-type
+		     specific models from scratch, we propose to meta-learn a prior model which can be fast fine-tuned to represent any subject/cloth-type
+		     specific neural avatars given only monocular depth frames.
+                  </p>
+                  <div class="text-center">
+                     <p><img class="img-fluid" alt="method overview" src="images/inference_pipeline.svg"></p>
+                  </div>
+                  <br><br>
+                  <p class="lead text-justify">
+		     Our key contribution is a meta-learned hypernetwork that can be fine-tuned to represent subject/cloth-type specific neural SDFs given only a
+	   	     few monocular depth frames. In practice, we decompose the training into two stages 1) meta-learn a static neural SDF 2) meta-learn a hypernetwork which predicts
+		     residuals to the parameters of the previously meta-learned static neural SDF.
+                  </p>
+                  <div class="text-center">
+                     <p><img class="img-fluid" alt="training stage1" src="images/train_pipeline1.svg" width=700></p>
+                  </div>
+                  <div class="text-center">
+                     <p><img class="img-fluid" alt="training stage2" src="images/train_pipeline2.svg" width=700></p>
+                  </div>
+                  <br><br>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="results" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Results</h2>
+		  <p class="lead text-justify">
+		     Comparison to baselines
+		  </p>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SXv1sBRwm4U" title="MetaAvatar: Comparison to Baselines" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+		  <br><br>
+		  <p class="lead text-justify">
+		     Learning with reduced data
+		  </p>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/eLZH-h1VOm8" title="MetaAvatar: Learning with Reduced Data" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+		  <br><br>
+		  <p class="lead text-justify">
+		     Learning with depth from raw scans
+		  </p>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MMQStRgWJUE" title="MetaAvatar: Learning with Depth from Raw Scans" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+		  <br><br>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="code" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">
+                    <a class="publink" target="_blank" style="text-decoration: none">Code coming <i class="fa fa-github"></i></a>
+                  </h2>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="pubs" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Technical Report</h2>
+                  <br>
+                  Shaofei Wang, Marko Mihajlovic, Qianli Ma, Andreas Geiger, Siyu Tang<br>
+                  <a class="publink" target="_blank"><b>
+                    MetaAvatar: Learning Animatable Clothed Human Models from Few Depth Images</b><br></a>
+                  <br><br>
+<!-- <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">@misc{MetaAvatar:arXiv:21,
+  title = {MetaAvatar: Learning Animatable Clothed Human Models from Few Depth Images},
+  author = {Shaofei Wang and Marko Mihajlovic and Qianli Ma and Andreas Geiger and Siyu Tang},
+  year = {2021},
+  eprint = {placeholder},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CV}
+} -->
+</pre>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+         <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; MetaAvatar 2021</p>
+         </div>
+         <!-- /.container -->
+      </footer>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Plugin JavaScript -->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Custom JavaScript for this theme -->
+      <script src="js/scrolling-nav.js"></script>
+   </body>
+</html>
