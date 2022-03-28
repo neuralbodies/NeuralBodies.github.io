@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="We propose COAP.">
+       <meta name="keywords" content="human body model; neural fields; COAP; human-scene interaction; 3D scene; deep learning; 3D vision; computer vision;">
+      <meta name="author" content="Marko Mihajlovic">
+      <title>[CVPR 2022] COAP: Compositional Articulated Occupancy of People</title>
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="[CVPR 2022] COAP: Compositional Articulated Occupancy of People" />
+      <meta name="twitter:description" content="COAP: Compositional Articulated Occupancy of People" />
+      <meta name="twitter:image" content="https://neuralbodies.github.io/COAP/images/teaser.png" />
+      <meta name="twitter:image:alt" content="COAP CVPR 2022" />
+
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <link href="css/mycss.css" rel="stylesheet">
+      <!-- nice figures  -->
+      <!--<link rel="stylesheet" href="css/font-awesome.css">-->
+      <!--<link rel="icon" type="image/png" href="images/favicon.png">-->
+
+   </head>
+   <body id="page-top">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">COAP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#video">Video</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#downloads">Downloads</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#citation">Citation</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+
+
+      <header class="bg-light text-black">
+          <div class="container text-center">
+             <h1>COAP </h1>
+             <h2>Compositional Articulated Occupancy of People</h2><br>
+              <div id="content">
+          <div id="content-inner">
+
+            <div class="section head">
+
+                <div class="authors">
+                    <h5>
+                        <a href="https://markomih.github.io/"  target="_blank">Marko Mihajlovic</a><sup>1</sup>&nbsp;
+                        <a href="http://www-scf.usc.edu/~saitos/"  target="_blank">Shunsuke Saito</a><sup>2</sup>&nbsp;
+                        <a href="http://www.cs.cmu.edu/~aayushb/"  target="_blank">Aayush Bansal</a><sup>2</sup>&nbsp;
+                        <a href="https://zollhoefer.com/"  target="_blank">Michael Zollhoefer</a><sup>2</sup>&nbsp;
+                        <a href="https://inf.ethz.ch/people/person-detail.MjYyNzgw.TGlzdC8zMDQsLTg3NDc3NjI0MQ==.html"  target="_blank">Siyu Tang</a><sup>1</sup>
+                        <h5>
+                </div>
+
+                <div class="affiliations">
+                    <h5>
+                        <sup>1</sup><a href="https://ethz.ch/en.html"  target="_blank">ETH Zurich</a>&nbsp;
+                        <sup>2</sup><a href="https://www.meta.com"  target="_blank">Reality Labs Research at Meta<br></a>
+                        <h5>
+                </div>
+
+                <div class="venue"><h5><a href="https://cvpr2022.thecvf.com/" target="_blank">CVPR 2022</a><h5></div>
+
+                <div class="downloads">
+                    <br><h3>
+                    <a class="publink" href="#" target="_blank" style="text-decoration: none"> Paper <i class="fa fa-print"></i></a> &nbsp;&nbsp;
+                    <a class="publink" href="#" target="_blank" style="text-decoration: none"> Code <i class="fa fa-github"></i></a> &nbsp;&nbsp;
+                    <a class="publink" href="#" target="_blank" style="text-decoration: none"> Video <i class="fa fa-youtube"></i></a>
+                    <h3>
+                </div>
+
+            </div>
+        </div>
+      </header>
+
+      <section id="about" class="about-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                   <div class="img-wide text-center">
+                     <p><img class="img-fluid" alt="teaser" src="images/teaser.png"></p>
+                  </div>
+                  <br>
+                  <h2>Abstract</h2>
+                  <p class="lead text-justify">
+                     We present a novel neural implicit representation for articulated human bodies.  Compared to explicit template meshes, neural implicit body representations provide an efficient mechanism for modeling interactions with the environment, which is essential for human motion reconstruction and synthesis in 3D scenes. However, existing neural implicit bodies suffer from either poor generalization on highly articulated poses or slow inference time. In this work, we observe that prior knowledge about the human body's shape and kinematic structure can be leveraged to improve generalization and efficiency. We decompose the full-body geometry into local body parts and employ a part-aware encoder-decoder architecture to learn neural articulated occupancy that models complex deformations locally. Our local shape encoder represents the body deformation of not only the corresponding body part but also the neighboring body parts. The decoder incorporates the geometric constraints of local body shape which significantly improves pose generalization. We demonstrate that our model is suitable for resolving self-intersections and collisions with 3D environments. Quantitative and qualitative experiments show that our method largely outperforms existing solutions in terms of both efficiency and accuracy.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section id="video" class="">
+         <!-- <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Video</h2>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UVB8A_T5e3c" title="[CVPR 2022] COAP: Compositional Articulated Occupancy of People" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+               </div>
+            </div>
+         </div> -->
+      </section>
+
+      <section id="downloads" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                   <h2>Downloads</h2> <br>
+                  <h2 class="img-wide text-center">
+                      <a class="publink" href="#" target="_blank" style="text-decoration: none"> Paper <i class="fa fa-print"></i></a> &nbsp;&nbsp;
+                      <a class="publink" href="https://github.com/markomih/COAP" target="_blank" style="text-decoration: none"> Code <i class="fa fa-github"></i></a> &nbsp;&nbsp;
+                  </h2>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+
+      <section id="citation" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Citation</h2>
+                  <br>
+                  <a class="publink" target="_blank" href="#"><b>
+                    COAP: Compositional Articulated Occupancy of People </b><br></a>
+                    Marko Mihajlovic, Shunsuke Saito, Aayush Bansal, Michael Zollhoefer, Siyu Tang<br>
+                    In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2022
+                  <br><br>
+<pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">
+@inproceedings{Mihajlovic:CVPR:2022,
+   title = {{COAP}: Compositional Articulated Occupancy of People},
+   author = {Mihajlovic, Marko and Saito, Shunsuke and Bansal, Aayush and Zollhoefer, Michael and Tang, Siyu},
+   booktitle = {Proceedings IEEE Conf. on Computer Vision and Pattern Recognition (CVPR)},
+   month = jun,
+   year = {2022}
+}</pre>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+
+
+      <section id="team" class="team-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title-tc">Team</h2>
+                        <!-- <div class="text-center">
+                         <table>
+                               <tr>
+                                   <th> <img src="images/teams/marko_rc.png" width="180" border="0">  </th>
+                                   <th> <img src="images/teams/shunsuke_rc.png" width="180" border="0"> </th>
+                                   <th> <img src="images/teams/aayush_rc.png" width="180" border="0"> </th>
+                                   <th> <img src="images/teams/michael_rc.png" width="180" border="0"> </th>
+                                   <th> <img src="images/teams/siyu_rc.png" width="180" border="0"> </th>
+                               </tr>
+
+                               <tr>
+                                   <td> Marko Mihajlovic  </td>
+                                   <td> Shunsuke Saito </td>
+                                   <td> Aayush Bansal </td>
+                                   <td> Michael Zollhoefer </td>
+                                   <td> Siyu Tang </td>
+                               </tr>
+
+                               <tr>
+                                 <td> 
+                                    <ul class="list-inline">
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/marko_mih">
+                                          <i class="fa fa-twitter"></i>
+                                          </a>
+                                       </li>
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/marko-mihajlovic/">
+                                          <i class="fa fa-linkedin"></i>
+                                          </a>
+                                       </li>
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="http://markomih.github.io/">
+                                          <i class="fa fa-user"></i>
+                                          </a>
+                                       </li>
+                                    </ul>  
+                                 </td>
+                                 <td> 
+                                    <ul class="list-inline">
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/psyth91">
+                                          <i class="fa fa-twitter"></i>
+                                          </a>
+                                       </li>
+                                       <li class="list-inline-item">
+                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/shunsukesaito/">
+                                        <i class="fa fa-linkedin"></i>
+                                        </a>
+                                     </li>
+                                     <li class="list-inline-item">
+                                        <a class="social-icon text-xs-center" target="_blank" href="http://www-scf.usc.edu/~saitos/">
+                                        <i class="fa fa-user"></i>
+                                        </a>
+                                     </li>
+                                     </ul>                                 
+                                 </td>
+                                 <td> 
+                                    <ul class="list-inline">
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/aayushbansal">
+                                          <i class="fa fa-twitter"></i>
+                                          </a>
+                                       </li>
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://www.cs.cmu.edu/~aayushb/">
+                                          <i class="fa fa-user"></i>
+                                          </a>
+                                       </li>
+                                     </ul>
+                                 </td>
+                                 <td>
+                                    <ul class="list-inline">
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/MZollhoefer">
+                                          <i class="fa fa-twitter"></i>
+                                          </a>
+                                       </li>
+                                       <li class="list-inline-item">
+                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/michael-zollhoefer-a785141a1/">
+                                        <i class="fa fa-linkedin"></i>
+                                        </a>
+                                     </li>
+                                     <li class="list-inline-item">
+                                        <a class="social-icon text-xs-center" target="_blank" href="https://zollhoefer.com">
+                                        <i class="fa fa-user"></i>
+                                        </a>
+                                     </li>
+                                     </ul>
+                                 </td>
+                                 <td>
+                                    <ul class="list-inline">
+                                       <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/MZollhoefer">
+                                          <i class="fa fa-twitter"></i>
+                                          </a>
+                                       </li>
+                                       <li class="list-inline-item">
+                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/michael-zollhoefer-a785141a1/">
+                                        <i class="fa fa-linkedin"></i>
+                                        </a>
+                                     </li>
+                                     <li class="list-inline-item">
+                                        <a class="social-icon text-xs-center" target="_blank" href="https://zollhoefer.com">
+                                        <i class="fa fa-user"></i>
+                                        </a>
+                                     </li>
+                                     </ul>
+                                 </td>
+                             </tr>
+                       </table>
+                        </div> -->
+               <div class="row justify-content-center">
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                     <div class="mainflip">
+                           <div class="card">
+                              <div class="card-body text-center card-no-padding">
+                                 <p><img class=" img-fluid" src="images/teams/marko_rc.png" alt="card image"></p>
+                                 <h5 class="card-title">Marko <br> Mihajlovic</h5>
+                                 <ul class="list-inline">
+                                   <li class="list-inline-item">
+                                      <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/marko_mih">
+                                      <i class="fa fa-twitter"></i>
+                                      </a>
+                                   </li>
+                                   <li class="list-inline-item">
+                                      <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/marko-mihajlovic/">
+                                      <i class="fa fa-linkedin"></i>
+                                      </a>
+                                   </li>
+                                   <li class="list-inline-item">
+                                      <a class="social-icon text-xs-center" target="_blank" href="http://markomih.github.io/">
+                                      <i class="fa fa-user"></i>
+                                      </a>
+                                   </li>
+                                 </ul>
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                     <div class="mainflip">
+                           <div class="card">
+                              <div class="card-body text-center card-no-padding">
+                                 <p><img class=" img-fluid" src="images/teams/shunsuke_rc.png" alt="card image"></p>
+                                 <h5 class="card-title">Shunsuke <br> Saito</h5>
+                                 <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                       <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/psyth91">
+                                       <i class="fa fa-twitter"></i>
+                                       </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                     <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/shunsukesaito/">
+                                     <i class="fa fa-linkedin"></i>
+                                     </a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                     <a class="social-icon text-xs-center" target="_blank" href="http://www-scf.usc.edu/~saitos/">
+                                     <i class="fa fa-user"></i>
+                                     </a>
+                                  </li>
+                                 </ul>                                 
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                     <div class="mainflip">
+                           <div class="card">
+                              <div class="card-body text-center card-no-padding">
+                                 <p><img class=" img-fluid" src="images/teams/aayush_rc.png" alt="card image"></p>
+                                 <h5 class="card-title">Aayush <br> Bansal</h5>
+                                 <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                       <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/aayushbansal">
+                                       <i class="fa fa-twitter"></i>
+                                       </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                       <a class="social-icon text-xs-center" target="_blank" href="https://www.cs.cmu.edu/~aayushb/">
+                                       <i class="fa fa-user"></i>
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                     <div class="mainflip">
+                           <div class="card">
+                              <div class="card-body text-center card-no-padding">
+                                 <p><img class=" img-fluid" src="images/teams/michael_rc.png" alt="card image"></p>
+                                 <h5 class="card-title">Michael <br> Zollhoefer</h5>
+                                 <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                       <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/MZollhoefer">
+                                       <i class="fa fa-twitter"></i>
+                                       </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                     <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/michael-zollhoefer-a785141a1/">
+                                     <i class="fa fa-linkedin"></i>
+                                     </a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                     <a class="social-icon text-xs-center" target="_blank" href="https://zollhoefer.com">
+                                     <i class="fa fa-user"></i>
+                                     </a>
+                                  </li>
+                                 </ul>
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                     <div class="mainflip">
+                           <div class="card">
+                              <div class="card-body text-center card-no-padding">
+                                 <p><img class=" img-fluid" src="images/teams/siyu_rc.png" alt="card image"></p>
+                                 <h5 class="card-title">Siyu <br> Tang</h5>
+                                 <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                       <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/SiyuTang3">
+                                       <i class="fa fa-twitter"></i>
+                                       </a>
+                                    </li>
+                                     <li class="list-inline-item">
+                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/siyu-tang-06875324/">
+                                        <i class="fa fa-linkedin"></i>
+                                        </a>
+                                     </li>
+                                 </ul>
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+
+      <section id="contact" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                   <h2>Contact</h2>
+                   <p class="lead text-justify">
+                     For questions, please contact Marko Mihajlovic (<a href="mailto:markomih@ethz.ch">markomih@ethz.ch</a>) or raise an issue on <a class="publink" href="#" target="_blank" style="text-decoration: none">GitHub</a>.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+         <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; ETH Zurich</p>
+         </div>
+         <!-- /.container -->
+      </footer>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Plugin JavaScript -->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Custom JavaScript for this theme -->
+      <script src="js/scrolling-nav.js"></script>
+   </body>
+</html>

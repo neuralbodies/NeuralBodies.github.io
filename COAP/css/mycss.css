@@ -1,0 +1,8 @@
+.card-no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+header {
+    padding-bottom: 0px;
+    padding-top: 100px;
+}
