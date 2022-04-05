@@ -26,9 +26,12 @@
    </head>
    <body id="page-top">
       <!-- Navigation -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
          <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">COAP</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><strong>COAP</strong></a>
+
+            <!-- <a href="index.html" id="header-logo" class="navbar-brand js-scroll-trigger d-none d-lg-block d-xl-block navbar-brand header-logo-text no-link ">COAP</a> -->
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,8 +60,11 @@
 
       <header class="bg-light text-black">
           <div class="container text-center">
-             <h1>COAP </h1>
-             <h2>Compositional Articulated Occupancy of People</h2><br>
+             <!-- <h1>COAP </h1>
+             <h2>Compositional Articulated <br> Occupancy of People</h2><br> -->
+             <h2><strong>COAP</strong>: <strong>Co</strong>mpositional <strong>A</strong>rticulated <br> Occupancy of <strong>P</strong>eople</h2><br>
+             <!-- <span style="font-size: 24pt;"><strong>COAP</strong>: <strong>Co</strong>mpositional <strong>A</strong>rticulated <br> Occupancy of <strong>P</strong>eople </span> -->
+
               <div id="content">
           <div id="content-inner">
 
@@ -101,13 +107,27 @@
                <div class="col-lg-10 mx-auto">
                    <div class="img-wide text-center">
                      <p><img class="img-fluid" alt="teaser" src="images/teaser.png"></p>
+                     <p class="lead text-center">CAOP is a generalizable neural implicit human body model.</p>
                   </div>
                   <br>
-                  <h2>Abstract</h2>
+                  <h3 class="lead text-center">Abstract</h3>
                   <p class="lead text-justify">
                      We present a novel neural implicit representation for articulated human bodies.  Compared to explicit template meshes, neural implicit body representations provide an efficient mechanism for modeling interactions with the environment, which is essential for human motion reconstruction and synthesis in 3D scenes. However, existing neural implicit bodies suffer from either poor generalization on highly articulated poses or slow inference time. In this work, we observe that prior knowledge about the human body's shape and kinematic structure can be leveraged to improve generalization and efficiency. We decompose the full-body geometry into local body parts and employ a part-aware encoder-decoder architecture to learn neural articulated occupancy that models complex deformations locally. Our local shape encoder represents the body deformation of not only the corresponding body part but also the neighboring body parts. The decoder incorporates the geometric constraints of local body shape which significantly improves pose generalization. We demonstrate that our model is suitable for resolving self-intersections and collisions with 3D environments. Quantitative and qualitative experiments show that our method largely outperforms existing solutions in terms of both efficiency and accuracy.
                   </p>
-               </div>
+                  <br>
+                  <h3 class="lead text-center">Animation of the Pose Prior Sequences</h3>
+                  <div class="row justify-content-center">
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+                  </div>
+                  <div class="row justify-content-center">
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+                  </div>
             </div>
          </div>
       </section>

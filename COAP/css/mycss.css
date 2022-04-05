@@ -3,6 +3,9 @@
     padding-right: 0 !important;
 }
 header {
-    padding-bottom: 0px;
+    padding-bottom: 44px;
     padding-top: 100px;
+}
+body, html {
+    color: #6c6f73;
 }
