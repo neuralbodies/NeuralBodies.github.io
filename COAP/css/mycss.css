@@ -9,3 +9,6 @@ header {
 body, html {
     color: #6c6f73;
 }
+.text-justify {
+    text-align: justify;
+}

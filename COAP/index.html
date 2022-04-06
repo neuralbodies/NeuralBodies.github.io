@@ -3,60 +3,55 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="We propose COAP.">
+      <meta name="description" content="CAOP is a generalizable neural implicit human body model.">
        <meta name="keywords" content="human body model; neural fields; COAP; human-scene interaction; 3D scene; deep learning; 3D vision; computer vision;">
       <meta name="author" content="Marko Mihajlovic">
       <title>[CVPR 2022] COAP: Compositional Articulated Occupancy of People</title>
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="[CVPR 2022] COAP: Compositional Articulated Occupancy of People" />
-      <meta name="twitter:description" content="COAP: Compositional Articulated Occupancy of People" />
+      <meta name="twitter:description" content="CAOP is a generalizable neural implicit human body model." />
       <meta name="twitter:image" content="https://neuralbodies.github.io/COAP/images/teaser.png" />
       <meta name="twitter:image:alt" content="COAP CVPR 2022" />
 
-      <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <!-- Custom styles for this template -->
-      <link href="css/scrolling-nav.css" rel="stylesheet">
-      <link href="css/mycss.css" rel="stylesheet">
-      <!-- nice figures  -->
-      <!--<link rel="stylesheet" href="css/font-awesome.css">-->
-      <!--<link rel="icon" type="image/png" href="images/favicon.png">-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+      <link href="css/mycss.css" rel="stylesheet">
+      <link rel="icon" type="image/png" href="images/icon.png">
    </head>
    <body id="page-top" style="color: #6c6f73">
-      <!-- Navigation -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+      
+      <div class="container"> <div class="row"> <div class="col-lg-10 mx-auto">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
          <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top"><strong>COAP</strong></a>
-
-            <!-- <a href="index.html" id="header-logo" class="navbar-brand js-scroll-trigger d-none d-lg-block d-xl-block navbar-brand header-logo-text no-link ">COAP</a> -->
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+           <a class="navbar-brand" href="#"><strong>COAP</strong></a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                     <a class="nav-link js-scroll-trigger" href="#about">Abstract</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#results">Results</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link js-scroll-trigger" href="#video">Video</a>
                   </li>
-                  <!-- <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#downloads">Downloads</a>
-                  </li> -->
                   <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#citation">Citation</a>
+                     <a class="nav-link js-scroll-trigger" href="#citation">Paper</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link js-scroll-trigger" href="#team">Team</a>
                   </li>
                </ul>
-            </div>
+           </div>
          </div>
-      </nav>
-
+       </nav>
+      </div></div></div>
+       
 
       <header class="bg-light text-black">
           <div class="container text-center">
@@ -93,7 +88,7 @@
                     <br><h3>
                     <a class="publink" href="#" target="_blank" style="text-decoration: none"> Paper <i class="fa fa-print"></i></a> &nbsp;&nbsp;
                     <a class="publink" href="#" target="_blank" style="text-decoration: none"> Code <i class="fa fa-github"></i></a> &nbsp;&nbsp;
-                    <a class="publink" href="#" target="_blank" style="text-decoration: none"> Video <i class="fa fa-youtube"></i></a>
+                    <a class="publink" href="#" target="_blank" style="text-decoration: none"> Video <i class="fa fa-youtube-play"></i></a>
                     <h3>
                 </div>
 
@@ -106,28 +101,52 @@
             <div class="row">
                <div class="col-lg-10 mx-auto">
                    <div class="img-wide text-center">
-                     <p><img class="img-fluid" alt="teaser" src="images/teaser.png"></p>
+                     <p class="d-none d-md-block"><img class="img-fluid" alt="teaser" src="images/teaser.png"></p> 
+                     <p class="d-block d-md-none"><img class="img-fluid" alt="teaser" src="images/teaser-sm.png"></p> 
                      <p class="lead text-center">CAOP is a generalizable neural implicit human body model.</p>
                   </div>
                   <br>
-                  <h3 class="lead text-center">Abstract</h3>
-                  <p class="lead text-justify">
+                  <h2 class="lead text-center">Abstract</h2>
+                  <p class="text-justify">
                      We present a novel neural implicit representation for articulated human bodies.  Compared to explicit template meshes, neural implicit body representations provide an efficient mechanism for modeling interactions with the environment, which is essential for human motion reconstruction and synthesis in 3D scenes. However, existing neural implicit bodies suffer from either poor generalization on highly articulated poses or slow inference time. In this work, we observe that prior knowledge about the human body's shape and kinematic structure can be leveraged to improve generalization and efficiency. We decompose the full-body geometry into local body parts and employ a part-aware encoder-decoder architecture to learn neural articulated occupancy that models complex deformations locally. Our local shape encoder represents the body deformation of not only the corresponding body part but also the neighboring body parts. The decoder incorporates the geometric constraints of local body shape which significantly improves pose generalization. We demonstrate that our model is suitable for resolving self-intersections and collisions with 3D environments. Quantitative and qualitative experiments show that our method largely outperforms existing solutions in terms of both efficiency and accuracy.
                   </p>
-                  <br>
-                  <h3 class="lead text-center">Animation of the Pose Prior Sequences</h3>
-                  <div class="row justify-content-center">
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
+            </div>
+         </div>
+      </section>
+      <section id="results">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="lead text-center">Animation of the Pose Prior Sequences</h2>
+                  <div class="img-wide text-center"> <img class="img-fluid" src="images/results/05.gif"> </div>
+                  <!-- <div class="">
+                     <div class="row justify-content-center">
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pl-0 pr-0"><img class="img-fluid" src="images/results/output.gif"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pl-0 pr-0"><img class="img-fluid" src="images/results/output.gif"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pl-0 pr-0"><img class="img-fluid" src="images/results/output.gif"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pl-0 pr-0"><img class="img-fluid" src="images/results/output.gif"></div>
+                     </div>
                   </div>
-                  <div class="row justify-content-center">
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><img class="img-fluid" src="images/results/output.gif"></div>
-                  </div>
+                  <div class="d-none d-md-block">
+                     <div class="row justify-content-center">
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pl-0 pr-0"><img class="img-fluid" src="images/results/output.gif"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pl-0 pr-0"><img class="img-fluid" src="images/results/output.gif"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pl-0 pr-0"><img class="img-fluid" src="images/results/output.gif"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pl-0 pr-0"><img class="img-fluid" src="images/results/output.gif"></div>
+                     </div>
+                  </div> -->
+            </div>
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="lead text-center">Comparison with LEAP and Neural-GIF</h2>
+                  <div class="img-wide text-center"> <img class="img-fluid" src="images/results/04.gif"> </div>
+               </div>
+         </div>
+         <br> <br> <br> <br>
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <h2 class="lead text-center">CAOP resolves self-intersections effectively</h2>
+               <div class="img-wide text-center"> <img class="img-fluid" src="images/results/selfinter.gif"> </div>
             </div>
          </div>
       </section>
@@ -165,14 +184,20 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-10 mx-auto">
-                  <h2 class="section-title-tc">Citation</h2>
+                  <h2 class="lead text-center">Paper</h2>
+                  <div class="row justify-content-center"> <a href="#" target="_blank"><img class="img-fluid" src="images/paper.jpg"></a></div>
+                  <!-- <h2 class="section-title-tc">Citation</h2> -->
                   <br>
                   <a class="publink" target="_blank" href="#"><b>
                     COAP: Compositional Articulated Occupancy of People </b><br></a>
                     Marko Mihajlovic, Shunsuke Saito, Aayush Bansal, Michael Zollhoefer, Siyu Tang<br>
                     In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2022
-                  <br><br>
-<pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">
+                  <br><br> <strong> BibTex </strong>
+
+                  <div class="card">
+                     <div class="card-body">
+<!-- <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px"> -->
+<pre>
 @inproceedings{Mihajlovic:CVPR:2022,
    title = {{COAP}: Compositional Articulated Occupancy of People},
    author = {Mihajlovic, Marko and Saito, Shunsuke and Bansal, Aayush and Zollhoefer, Michael and Tang, Siyu},
@@ -180,6 +205,7 @@
    month = jun,
    year = {2022}
 }</pre>
+</div></div>
                </div>
             </div>
          </div>
@@ -192,7 +218,8 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-10 mx-auto">
-                    <h2 class="section-title-tc">Team</h2>
+                  <h2 class="lead text-center">Team</h2>
+                    <!-- <h2 class="section-title-tc">Team</h2> -->
                         <!-- <div class="text-center">
                          <table>
                                <tr>
@@ -447,9 +474,10 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-10 mx-auto">
-                   <h2>Contact</h2>
-                   <p class="lead text-justify">
-                     For questions, please contact Marko Mihajlovic (<a href="mailto:markomih@ethz.ch">markomih@ethz.ch</a>) or raise an issue on <a class="publink" href="#" target="_blank" style="text-decoration: none">GitHub</a>.
+                  <h3 class="lead text-center">Contact</h3>
+                   <!-- <h2>Contact</h2> -->
+                   <p class="text-center text-justify">
+                     For questions, please contact <a href="https://markomih.github.io/" target="_blank">Marko Mihajlovic</a> or raise an issue on <a class="publink" href="#" target="_blank" style="text-decoration: none">GitHub</a>.
                   </p>
                </div>
             </div>
@@ -463,12 +491,17 @@
          </div>
          <!-- /.container -->
       </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!--       
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
+  
       <!-- Bootstrap core JavaScript -->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
       <!-- Plugin JavaScript -->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
       <!-- Custom JavaScript for this theme -->
-      <script src="js/scrolling-nav.js"></script>
+      <!-- <script src="js/scrolling-nav.js"></script> -->
    </body>
 </html>
