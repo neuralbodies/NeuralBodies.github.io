@@ -3,16 +3,16 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="ARAH learns clothed human avatars that have detailed geometry/appearance and generalize to out-of-distribution poses, from sparse multi-view videos.">
+      <meta name="description" content="ARAH learns clothed human avatars that have detailed pose-dependent geometry/appearance and generalize to out-of-distribution poses, from sparse multi-view videos.">
       <meta name="author" content="Shaofei Wang">
       <title>ARAH: Animatable Volume Rendering of Articulated Human SDFs</title>
       <meta property="og:title" content="ARAH: Animatable Volume Rendering of Articulated Human SDFs" />
-      <meta property="og:description" content="Given sparse multi-view videos, ARAH learns animatable clothed human avatars that have detailed geometry/appearance and generalize to out-of-distribution poses.">
+      <meta property="og:description" content="Given sparse multi-view videos, ARAH learns animatable clothed human avatars that have detailed pose-dependent geometry/appearance and generalize to out-of-distribution poses.">
       <meta property="og:image" content="https://neuralavatars.github.io/arah/images/teaser_large.png" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="ARAH: Animatable Volume Rendering of Articulated Human SDFs" />
-      <meta name="twitter:description" content="ARAH learns clothed human avatars that have detailed geometry/appearance and generalize to out-of-distribution poses, from sparse multi-view videos." />
+      <meta name="twitter:description" content="ARAH learns clothed human avatars that have detailed pose-dependent geometry/appearance and generalize to out-of-distribution poses, from sparse multi-view videos." />
       <meta name="twitter:image" content="https://neuralavatars.github.io/arah/images/teaser_large.png" />
       <meta name="twitter:image:alt" content="ARAH" />
       <!-- Bootstrap core CSS -->
@@ -54,10 +54,40 @@
          <div class="container text-center">
             <h1>ARAH </h1>
             <h2>Animatable Volume Rendering of Articulated Human SDFs</h2>
-            <!-- <br> -->
-            <p class="lead"><i>Given sparse multi-view videos, ARAH learns animatable clothed human avatars that have detailed geometry/appearance and generalize to out-of-distribution poses.</i>
-            </p>
-         </div>
+
+	   <div class="section head">
+
+	     <div class="authors">
+               <h5>
+                 <a href="https://taconite.github.io">Shaofei Wang</a><sup>1</sup>&nbsp;
+                 <a href="https://katjaschwarz.github.io/">Katja Schwarz</a><sup>2,3</sup>&nbsp;
+                 <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>2,3</sup>&nbsp;
+                 <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">Siyu Tang</a><sup>1</sup>
+               <h5>
+             </div>
+	     <div class="affiliations">
+               <h5>
+                 <sup>1</sup><a href="https://ethz.ch/en.html">ETH Zürich</a>&nbsp; &nbsp;&nbsp;
+                 <sup>2</sup><a href="https://is.mpg.de/">Max Planck Institute for Intelligent Systems, Tübingen<br></a>
+                 <sup>3</sup><a href="https://uni-tuebingen.de/">University of Tübingen</a> &nbsp;&nbsp;
+               <h5>
+             </div>
+
+	     <div class="venue"><h5>European Conference on Computer Vision (<a href="https://eccv2022.ecva.net/" target="_blank">ECCV</a>) 2022<h5></div>
+
+             <p class="lead"><i>Given sparse multi-view videos, ARAH learns animatable clothed human avatars that have detailed pose-dependent geometry/appearance and generalize to out-of-distribution poses.</i>
+             </p>
+
+	     <div class="downloads">
+                 <br><h3>
+                 <a class="publink" href="https://drive.google.com/file/d/10yCrdOadwKNiDQBni23_W03ZwVafkfCJ/view?usp=sharing" target="_blank" style="text-decoration: none"> Preprint <i class="fa fa-print"></i></a> &nbsp;
+                 &nbsp;&nbsp;
+                 <a class="publink" href="https://github.com/taconite/arah-release" target="_blank" style="text-decoration: none"> Code <i class="fa fa-github"></i></a>
+                 <h3>
+	     </div>
+
+           </div>
+	 </div>
       </header>
       <section id="about" class="about-section">
          <div class="container">
@@ -65,8 +95,8 @@
                <div class="col-lg-10 mx-auto">
                   <p class="lead text-justify">
 		     ARAH combines articulated human SDFs with a novel joint root-finding algorithm to solve the problem of simultaneously searching ray-surface
-		     intersections and their correspondences in canonical space. This enables efficient and accurate sampling for volume rendering of clothed
-		     human avatars, which have both detailed geometry and appearance, while generalizing well to out-of-distribution test poses.
+		     intersections and their correspondences in canonical space for rendering. This enables efficient and accurate sampling for volume rendering
+		     of clothed human avatars, which have both detailed pose-dependent geometry and appearance, while generalizing well to out-of-distribution test poses.
                   </p>
                   <div class="img-wide text-center">
                      <p><img class="img-fluid" alt="teaser" src="images/teaser_large.png" width=1000></p>
@@ -90,14 +120,14 @@
                <div class="col-12 text-center">
                   <h2 class="section-title-tc">Results</h2>
 		  <p class="lead text-justify">
-		    Comparison to baselines (4-views)
+		    Comparison to baselines, trained with 4-views, 300 frames
 		  </p>
                   <video width="800" id="home2" playsinline="" preload="" muted="" controls> 
 		    <source type="video/mp4" src="videos/comparison_to_baselines.mp4" /> 
 		  </video>
                   <br><br>
 		  <p class="lead text-justify">
-		     Out-of-distribution generalization for models trained from a single view
+		     Out-of-distribution generalization for models trained from a single view with 500 frames
 		  </p>
                   <video width="400" id="home2" playsinline="" preload="" muted="" controls> 
 		    <source type="video/mp4" src="videos/377_dance2.mp4" /> 
