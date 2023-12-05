@@ -1,186 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="3DGS-Avatar leverages 3D Gaussian Splatting to learn clothed human avatars that model pose-dependent appearance and 
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description"
+      content="3DGS-Avatar leverages 3D Gaussian Splatting to learn clothed human avatars that model pose-dependent appearance and 
       generalize to out-of-distribution poses from a monocular video, with short training time and interactive rendering frame rate.">
-      <meta name="author" content="Zhiyin Qian">
-      <title>3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting</title>
-      <meta property="og:title" content="3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting" />
-      <meta property="og:description" content="Given a monocular video, 3DGS-Avatar learns clothed human avatars that model pose-dependent appearance and 
+   <meta name="author" content="Zhiyin Qian">
+   <title>3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting</title>
+   <meta property="og:title" content="3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting" />
+   <meta property="og:description" content="Given a monocular video, 3DGS-Avatar learns clothed human avatars that model pose-dependent appearance and 
       generalize to out-of-distribution poses, with short training time and interactive rendering frame rate.">
-      <meta property="og:image" content="https://neuralavatars.github.io/3DGS-Avatar/images/teaser_large.pdf" />
+   <meta property="og:image" content="https://neuralavatars.github.io/3DGS-Avatar/images/teaser_large.pdf" />
 
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting" />
-      <meta name="twitter:description" content="3DGS-Avatar leverages 3D Gaussian Splatting to learn clothed human avatars that model pose-dependent appearance and 
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content="3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting" />
+   <meta name="twitter:description"
+      content="3DGS-Avatar leverages 3D Gaussian Splatting to learn clothed human avatars that model pose-dependent appearance and 
       generalize to out-of-distribution poses from a monocular video, with short training time and interactive rendering frame rate." />
-      <meta name="twitter:image" content="https://neuralavatars.github.io/3DGS-Avatar/images/teaser_large.pdf" />
-      <meta name="twitter:image:alt" content="3DGS-Avatar" />
-      <!-- Bootstrap core CSS -->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <!-- Custom styles for this template -->
-      <link href="css/scrolling-nav.css" rel="stylesheet">
-      <!-- nice figures  -->
-      <link rel="stylesheet" href="css/font-awesome.css">
-      <link rel="icon" type="image/png" href="images/favicon.jpg">
+   <meta name="twitter:image" content="https://neuralavatars.github.io/3DGS-Avatar/images/teaser_large.pdf" />
+   <meta name="twitter:image:alt" content="3DGS-Avatar" />
+   <!-- Bootstrap core CSS -->
+   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Custom styles for this template -->
+   <link href="css/scrolling-nav.css" rel="stylesheet">
+   <!-- nice figures  -->
+   <link rel="stylesheet" href="css/font-awesome.css">
+   <link rel="icon" type="image/png" href="images/favicon.jpg">
 
-   </head>
-   <body id="page-top">
-      <!-- Navigation -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">ARAH</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+</head>
+
+<body id="page-top">
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+         <a class="navbar-brand js-scroll-trigger" href="#page-top">3DGS-Avatar</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-               <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#video">Video</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#results">Results</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#code">Code</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#poster">Poster</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="#pubs">Publication</a>
-                  </li>
-               </ul>
-            </div>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#about">About</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#video">Video</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#results">Results</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#code">Code</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#poster">Poster</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#pubs">Publication</a>
+               </li>
+            </ul>
          </div>
-      </nav>
-      <header class="bg-light text-black">
-         <div class="container text-center">
-            <h1>3DGS-Avatar </h1>
-            <h2>Animatable Avatars via Deformable 3D Gaussian Splatting</h2>
+      </div>
+   </nav>
 
-	   <div class="section head">
 
-	     <div class="authors">
+   <header class="bg-light text-black">
+      <div class="container text-center">
+         <h1>3DGS-Avatar </h1>
+         <h2>Animatable Avatars via Deformable 3D Gaussian Splatting</h2>
+
+         <div class="section head">
+
+            <div class="authors">
                <h5>
                   <a href="https://mikeqzy.github.io">Zhiyin Qian</a><sup>1</sup>&nbsp;
                   <a href="https://taconite.github.io">Shaofei Wang</a><sup>1</sup>&nbsp;
                   <a href="https://markomih.github.io/">Marko Mihajlovic</a><sup>1</sup>&nbsp;
                   <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>2,3</sup>&nbsp;
                   <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">Siyu Tang</a><sup>1</sup>
+                  <h5>
+            </div>
+            <div class="affiliations">
                <h5>
-             </div>
-	     <div class="affiliations">
-               <h5>
-                 <sup>1</sup><a href="https://ethz.ch/en.html">ETH Zürich</a>&nbsp; &nbsp;&nbsp;
-                 <sup>2</sup><a href="https://is.mpg.de/">Max Planck Institute for Intelligent Systems, Tübingen<br></a>
-                 <sup>3</sup><a href="https://uni-tuebingen.de/">University of Tübingen</a> &nbsp;&nbsp;
-               <h5>
-             </div>
+                  <sup>1</sup><a href="https://ethz.ch/en.html">ETH Zürich</a>&nbsp; &nbsp;&nbsp;
+                  <sup>2</sup><a href="https://is.mpg.de/">Max Planck Institute for Intelligent Systems,
+                     Tübingen<br></a>
+                  <sup>3</sup><a href="https://uni-tuebingen.de/">University of Tübingen</a> &nbsp;&nbsp;
+                  <h5>
+            </div>
 
-	     <!-- <div class="venue"><h5>European Conference on Computer Vision (<a href="https://eccv2022.ecva.net/" target="_blank">ECCV</a>) 2022<h5></div> -->
+            <!-- <div class="venue"><h5>European Conference on Computer Vision (<a href="https://eccv2022.ecva.net/" target="_blank">ECCV</a>) 2022<h5></div> -->
 
-             <p class="lead"><b>TL;DR: </b><i>Given a monocular video, 3DGS-Avatar learns clothed human avatars that model pose-dependent appearance and 
-               generalize to out-of-distribution poses, with short training time and interactive rendering frame rate.</i>
-             </p>
+            <p class="lead"><b>TL;DR: </b><i>Given a monocular video, 3DGS-Avatar learns clothed human avatars that
+                  model pose-dependent appearance and
+                  generalize to out-of-distribution poses, with short training time and interactive rendering frame
+                  rate.</i>
+            </p>
 
-	     <div class="downloads">
-                 <br><h3>
-                 <a class="publink" href="https://arxiv.org/abs/2210.10036" target="_blank" style="text-decoration: none"> Paper <i class="fa fa-print"></i></a> &nbsp;
-                 &nbsp;&nbsp;
-                 <a class="publink" href="" target="_blank" style="text-decoration: none"> Code (TBA)<i class="fa fa-github"></i></a>
-                 <h3>
-	     </div>
+            <div class="downloads">
+               <br>
+               <h3>
+                  <a class="publink" href="https://arxiv.org/abs/2210.10036" target="_blank"
+                     style="text-decoration: none"> <i class="fa fa-print"></i> Paper </a> &nbsp;
+                  &nbsp;&nbsp;
+                  <a class="publink" href="" target="_blank" style="text-decoration: none">
+                     <i class="fa fa-github"></i> Code (TBA) </a>
+                  <h3>
+            </div>
 
-           </div>
-	 </div>
-      </header>
-      <section id="about" class="about-section">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-10 mx-auto">
-                  <p class="lead text-justify">
-                     We introduce the first approach that creates animatable human avatars from monocular videos using <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting (3DGS)</a>. 
-                     we use 3D Gaussian Splatting and learn a non-rigid deformation network to reconstruct animatable clothed human avatars that can be trained within 30 minutes and rendered at real-time frame rates (50+ FPS).
-                     Given the explicit nature of our representation, we further introduce as-isometric-as-possible regularizations on both the Gaussian mean vectors and the covariance matrices, enhancing the generalization of our model on highly articulated unseen poses. 
-                     Experimental results show that our method achieves comparable and even better performance compared to state-of-the-art approaches on animatable avatar creation from a monocular input, while being 400x and 250x faster in training and inference respectively. 
-                  </p>
-                  <div class="img-wide text-center">
-                     <p><img class="img-fluid" alt="teaser" src="images/teaser_large.pdf" width=1000></p>
-                  </div>
-                  <br><br>
-                  <h3>Overview</h3>
-                  <p class="lead text-justify">
-                     Our method optimizes a set of 3D Gaussians in canonical space, which is initialized via sampling points from canonical SMPL mesh surface.
-                     Each canonical Gaussian goes through a non-rigid deformation module conditioned on an encoded pose vector (Section 4.1) and outputs the deformed 3D Gaussian and a pose-dependent latent feature. 
-                     The deformed 3D Gaussian is further transformed to the observation space (Section 4.2) via forward skinning with learned skinning weights. 
-                     Note that our method only learns skinning field in canonical space and requires no inverse skinning which is typically difficult to compute and often leads to multiple solutions, thus showing good generalizatin to unseen poses.
-                     The Gaussian feature, along with the pose-dependent feature, a per-frame latent code and the ray direction, are propagated through a small MLP to decode the view-dependent color for each 3D Gaussian. 
-                     Finally, the observation space 3D Gaussians and their respective color values are accumulated via differentiable Gaussian rasterization to render the image.
-                     We additionally apply <i>as-isometric-as-possible</i> regularization to both the Gaussian mean and covariance, which helps realistic deformation of the avatar, particularly in highly articulated and out-of-distribution poses.
-                  </p>
-                  <div class="text-center">
-                     <p><img class="img-fluid" alt="method overview" src="images/pipeline.pdf"></p>
-                  </div>
-                  <br><br>
+         </div>
+      </div>
+   </header>
+
+
+   <section id="about" class="about-section">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <p class="lead text-justify">
+                  We introduce the first approach that creates animatable human avatars from monocular videos using <a
+                     href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting (3DGS)</a>.
+                  we use 3D Gaussian Splatting and learn a non-rigid deformation network to reconstruct animatable
+                  clothed human avatars that can be trained within 30 minutes and rendered at real-time frame rates (50+
+                  FPS).
+                  Given the explicit nature of our representation, we further introduce as-isometric-as-possible
+                  regularizations on both the Gaussian mean vectors and the covariance matrices, enhancing the
+                  generalization of our model on highly articulated unseen poses.
+                  Experimental results show that our method achieves comparable and even better performance compared to
+                  state-of-the-art approaches on animatable avatar creation from a monocular input, while being 400x and
+                  250x faster in training and inference respectively.
+               </p>
+               <div class="img-wide text-center">
+                  <p><img class="img-fluid" alt="teaser" src="images/teaser_large.png" width=1000></p>
                </div>
+               <br><br>
+               <h3>Overview</h3>
+               <p class="lead text-justify">
+                  Our method optimizes a set of 3D Gaussians in canonical space, which is initialized via sampling
+                  points from canonical SMPL mesh surface.
+                  Each canonical Gaussian goes through a non-rigid deformation module conditioned on an encoded pose
+                  vector (Section 4.1) and outputs the deformed 3D Gaussian and a pose-dependent latent feature.
+                  The deformed 3D Gaussian is further transformed to the observation space (Section 4.2) via forward
+                  skinning with learned skinning weights.
+                  Note that our method only learns skinning field in canonical space and requires no inverse skinning
+                  which is typically difficult to compute and often leads to multiple solutions, thus showing good
+                  generalizatin to unseen poses.
+                  The Gaussian feature, along with the pose-dependent feature, a per-frame latent code and the ray
+                  direction, are propagated through a small MLP to decode the view-dependent color for each 3D Gaussian.
+                  Finally, the observation space 3D Gaussians and their respective color values are accumulated via
+                  differentiable Gaussian rasterization to render the image.
+                  We additionally apply <i>as-isometric-as-possible</i> regularization to both the Gaussian mean and
+                  covariance, which helps realistic deformation of the avatar, particularly in highly articulated and
+                  out-of-distribution poses.
+               </p>
+               <div class="text-center">
+                  <p><img class="img-fluid" alt="method overview" src="images/pipeline.png"></p>
+               </div>
+               <br><br>
             </div>
          </div>
-      </section>
+      </div>
+   </section>
 
-      <nav>
-         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-           <button class="nav-item nav-link" id="rugby-tab" data-bs-toggle="tab" data-bs-target="#rugby" role="tab" type="button" aria-controls="rugby" aria-selected="false">rugby</button>
-           <button class="nav-item nav-link" id="invisible-tab" data-bs-toggle="tab" data-bs-target="#invisible" role="tab" type="button" aria-controls="invisible" aria-selected="false">invisible</button>
-           <button class="nav-item nav-link" id="story-tab" data-bs-toggle="tab" data-bs-target="#story" role="tab" type="button" aria-controls="invisible" aria-selected="false">story</button>
-           <button class="nav-item nav-link" id="hoodie-tab" data-bs-toggle="tab" data-bs-target="#hoodie" role="tab" type="button" aria-controls="invisible" aria-selected="false">hoodie</button>
-           <button class="nav-item nav-link active" id="way2sexy-tab" data-bs-toggle="tab" data-bs-target="#way2sexy" role="tab" type="button" aria-controls="invisible" aria-selected="true">way2sexy</button>
-         </div>
-     </nav>
-     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade text-center" id="rugby" role="tabpanel" aria-labelledby="rugby-tab">
-          <video width="100%" autoplay="" loop="" muted="" controls="">
-              <source src="assets/wild/rugby.mp4" type="video/mp4">
-          </video>
-      </div>
-      <div class="tab-pane fade" id="invisible" role="tabpanel" aria-labelledby="invisible-tab">
-          <video width="100%" autoplay="" loop="" muted="" controls="">
-              <source src="assets/wild/invisible.mp4" type="video/mp4">
-          </video>
-          <p class="text-center">
-              video source: <a href="https://youtu.be/ANwEiICt7BM">https://youtu.be/ANwEiICt7BM</a>
-          </p>
-      </div>
-      <div class="tab-pane fade text-center" id="story" role="tabpanel" aria-labelledby="story-tab">
-          <video width="100%" autoplay="" loop="" muted="" controls="">
-              <source src="assets/wild/story.mp4" type="video/mp4">
-          </video>
-          <p class="text-center">
-              video source: <a href="https://youtu.be/0ORaAnJYROg">https://youtu.be/0ORaAnJYROg</a>
-          </p>
-      </div>
-      <div class="tab-pane fade text-center" id="hoodie" role="tabpanel" aria-labelledby="hoodie-tab">
-          <video width="100%" autoplay="" loop="" muted="" controls="">
-              <source src="assets/wild/hoodie.mp4" type="video/mp4">
-          </video>
-      </div>
-      <div class="tab-pane fade text-center active show" id="way2sexy" role="tabpanel" aria-labelledby="way2sexy-tab">
-          <video width="100%" autoplay="" loop="" muted="" controls="">
-              <source src="assets/wild/way2sexy.mp4" type="video/mp4">
-          </video>
-          <p class="text-center">
-              video source: <a href="https://youtu.be/gEpJDE8ZbhU">https://youtu.be/gEpJDE8ZbhU</a>
-          </p>
-      </div>
-  </div>
-
-
-      <!-- <section id="video" class="">
+   <!-- Replace video link -->
+   <section id="video" class="">
          <div class="container">
             <div class="row">
                <div class="col-lg-10 mx-auto">
@@ -192,98 +177,147 @@
                </div>
             </div>
          </div>
-      </section> -->
-      <!-- <section id="results" class="">
-         <div class="container">
-            <div class="row">
-               <div class="col-12 text-center">
-                  <h2 class="section-title-tc">Results</h2>
-		  <p class="lead text-justify">
-		    Comparison to baselines, trained with 4-views, 300 frames
-		  </p>
-                  <video width="80%" height="auto" id="home2" playsinline="" preload="" muted="" controls> 
-		    <source type="video/mp4" src="videos/comparison_to_baselines.mp4" /> 
-		  </video>
-                  <br><br>
-		  <p class="lead text-justify">
-		     Out-of-distribution generalization for models trained from a single view with 500 frames
-		  </p>
-                  <video width="20%" height="auto" id="home2" playsinline="" preload="" muted="" controls> 
-		    <source type="video/mp4" src="videos/377_dance2.mp4" /> 
-		  </video>
-                  <video width="20%" height="auto" playsinline="" preload="" muted="" controls> 
-		    <source type="video/mp4" src="videos/387_dance2.mp4" /> 
-		  </video>
-                  <video width="20%" height="auto" id="home2" playsinline="" preload="" muted="" controls> 
-		    <source type="video/mp4" src="videos/392_dance2.mp4" /> 
-		  </video>
-                  <video width="20%" height="auto" id="home3" playsinline="" preload="" muted="" controls> 
-		    <source type="video/mp4" src="videos/393_dance2.mp4" /> 
-		  </video>
-                  </div>
-               </div>
-            </div>
-         </div>
       </section>
-      <section id="code" class="">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-10 mx-auto">
-                  <h2 class="section-title-tc">
-                    <a class="publink" target="_blank" href="https://github.com/taconite/arah-release" style="text-decoration: none">Code <i class="fa fa-github"></i></a>
-                  </h2>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section id="poster" class="">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-10 mx-auto">
-                  <h2 class="section-title-tc">Poster</h2>
-                  <br>
-                  <div class="img-wide text-center">
-                     <p><img class="img-fluid" alt="teaser" src="images/poster.png" width=1000 href="images/poster.png"></p>
+
+
+   <section id="results" class="">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto"> <!-- changed alignment -->
+               <h2 class="section-title-tc">Results</h2>
+               <p class="lead text-justify">
+                  Comparison to baselines, trained with 4-views, 300 frames
+               </p>
+
+               <!-- copied from HumanNeRF website -->
+               <nav>
+                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                     <button class="nav-item nav-link active" id="tab-377" data-bs-toggle="tab" data-bs-target="#video-377" role="tab" type="button" aria-controls="tab-377" aria-selected="true">377</button>
+                     <button class="nav-item nav-link" id="tab-386" data-bs-toggle="tab" data-bs-target="#video-387" role="tab" type="button" aria-controls="tab-387" aria-selected="false">387</button>
+                     <!-- <button class="nav-item nav-link" id="tab-387" data-bs-toggle="tab" data-bs-target="#video-387" role="tab" type="button" aria-controls="tab-387" aria-selected="false">387</button> -->
+                     <!-- <button class="nav-item nav-link" id="tab-392" data-bs-toggle="tab" data-bs-target="#video-392" role="tab" type="button" aria-controls="tab-392" aria-selected="false">392</button> -->
+                     <!-- <button class="nav-item nav-link" id="tab-393" data-bs-toggle="tab" data-bs-target="#video-393" role="tab" type="button" aria-controls="tab-393" aria-selected="false">393</button> -->
+                     <!-- <button class="nav-item nav-link" id="tab-394" data-bs-toggle="tab" data-bs-target="#video-394" role="tab" type="button" aria-controls="tab-394" aria-selected="false">394</button> -->
                   </div>
+               </nav>
+
+               <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade text-center active show" id="video-377" role="tabpanel" aria-labelledby="tab-377" style="background-color: black;">
+                      <video width="60%" autoplay="" loop="" muted="" controls="">
+                          <source src="videos/377.mp4" type="video/mp4">
+                      </video>
+                  </div>
+                  <div class="tab-pane fade text-center" id="video-387" role="tabpanel" aria-labelledby="tab-387" style="background-color: black;">
+                      <video width="60%" autoplay="" loop="" muted="" controls="">
+                          <source src="videos/377.mp4" type="video/mp4">
+                      </video>
+                  </div>
+                  <!-- <div class="tab-pane fade text-center" id="video-392" role="tabpanel" aria-labelledby="tab-392" style="background-color: black;">
+                      <video width="60%" autoplay="" loop="" muted="" controls="">
+                          <source src="assets/zju/392.mp4" type="video/mp4">
+                      </video>
+                  </div>
+                  <div class="tab-pane fade text-center" id="video-393" role="tabpanel" aria-labelledby="tab-393" style="background-color: black;">
+                      <video width="60%" autoplay="" loop="" muted="" controls="">
+                          <source src="assets/zju/393.mp4" type="video/mp4">
+                      </video>
+                  </div>
+                  <div class="tab-pane fade text-center" id="video-394" role="tabpanel" aria-labelledby="tab-394" style="background-color: black;">
+                      <video width="60%" autoplay="" loop="" muted="" controls="">
+                          <source src="assets/zju/394.mp4" type="video/mp4">
+                      </video>
+                  </div> -->
+              </div>
+
+
+               <!-- <video width="80%" height="auto" id="home2" playsinline="" preload="" muted="" controls>
+                  <source type="video/mp4" src="videos/comparison_to_baselines.mp4" />
+               </video>
+               <br><br>
+               <p class="lead text-justify">
+                  Out-of-distribution generalization for models trained from a single view with 500 frames
+               </p>
+               <video width="20%" height="auto" id="home2" playsinline="" preload="" muted="" controls>
+                  <source type="video/mp4" src="videos/377_dance2.mp4" />
+               </video>
+               <video width="20%" height="auto" playsinline="" preload="" muted="" controls>
+                  <source type="video/mp4" src="videos/387_dance2.mp4" />
+               </video>
+               <video width="20%" height="auto" id="home2" playsinline="" preload="" muted="" controls>
+                  <source type="video/mp4" src="videos/392_dance2.mp4" />
+               </video>
+               <video width="20%" height="auto" id="home3" playsinline="" preload="" muted="" controls>
+                  <source type="video/mp4" src="videos/393_dance2.mp4" />
+               </video> -->
+            </div>
+         </div>
+      </div>
+      </div>
+   </section>
+   <section id="code" class="">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <h2 class="section-title-tc">
+                  <a class="publink" target="_blank" href="https://github.com/taconite/arah-release"
+                     style="text-decoration: none">Code <i class="fa fa-github"></i></a>
+               </h2>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section id="poster" class="">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <h2 class="section-title-tc">Poster</h2>
+               <br>
+               <div class="img-wide text-center">
+                  <p><img class="img-fluid" alt="teaser" src="images/poster.png" width=1000 href="images/poster.png"></p>
                </div>
             </div>
          </div>
-      </section> -->
-      <section id="pubs" class="">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-10 mx-auto">
-                  <h2 class="section-title-tc">Publication</h2>
-                  <br>
-                  Shaofei Wang, Katja Schwarz, Andreas Geiger, Siyu Tang<br>
-                  <a class="publink" target="_blank" href="https://arxiv.org/abs/2210.10036"><b>
-                    ARAH: Animatable Volume Rendering of Articulated Human SDFs</b><br></a>
-                  In Proceedings of European Conference on Computer Vision. 2022
-                  <br><br>
-  <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">@InProceedings{ARAH:ECCV:2022,
+      </div>
+   </section>
+
+
+   <section id="pubs" class="">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <h2 class="section-title-tc">Publication</h2>
+               <br>
+               Zhiyin Qian,Shaofei Wang, Marko Mihajlovic, Andreas Geiger, Siyu Tang<br>
+               <a class="publink" target="_blank" href=""><b>
+                     3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting</b><br></a>
+               <!-- In Proceedings of European Conference on Computer Vision. 2022 -->
+               <br><br>
+               <!-- TODO: replace citation reference, add arxiv href -->
+               <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">@InProceedings{ARAH:ECCV:2022,
   title = {ARAH: Animatable Volume Rendering of Articulated Human SDFs},
   author = {Shaofei Wang and Katja Schwarz and Andreas Geiger and Siyu Tang},
   booktitle = {European Conference on Computer Vision},
   year = {2022}
 }
 </pre>
-               </div>
             </div>
          </div>
-      </section>
-      <!-- Footer -->
-      <footer class="py-5 bg-dark">
-         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; VLG 2022</p>
-         </div>
-         <!-- /.container -->
-      </footer>
-      <!-- Bootstrap core JavaScript -->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <!-- Plugin JavaScript -->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-      <!-- Custom JavaScript for this theme -->
-      <script src="js/scrolling-nav.js"></script>
-   </body>
+      </div>
+   </section>
+   <!-- Footer -->
+   <footer class="py-5 bg-dark">
+      <div class="container">
+         <p class="m-0 text-center text-white">Copyright &copy; VLG 2022</p>
+      </div>
+      <!-- /.container -->
+   </footer>
+   <!-- Bootstrap core JavaScript -->
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Plugin JavaScript -->
+   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+   <!-- Custom JavaScript for this theme -->
+   <script src="js/scrolling-nav.js"></script>
+</body>
+
 </html>
