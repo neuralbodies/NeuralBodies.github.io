@@ -24,6 +24,11 @@ h1 {
   line-height: 5.5rem;
 }
 
+hr{
+    height: 2px;
+    color: #000000;
+}
+
 
 
 section {
@@ -171,3 +176,4 @@ a:hover, a:focus, a:active {
     height: 150px;
     border-radius: 50%;
 }
+

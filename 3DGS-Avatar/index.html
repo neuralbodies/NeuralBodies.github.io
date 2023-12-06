@@ -23,6 +23,8 @@
    <meta name="twitter:image:alt" content="3DGS-Avatar" />
    <!-- Bootstrap core CSS -->
    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    <!-- Custom styles for this template -->
    <link href="css/scrolling-nav.css" rel="stylesheet">
    <!-- nice figures  -->
@@ -32,6 +34,9 @@
 </head>
 
 <body id="page-top">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
    <!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
@@ -51,12 +56,12 @@
                <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#results">Results</a>
                </li>
-               <li class="nav-item">
+               <!-- <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#code">Code</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#poster">Poster</a>
-               </li>
+               </li> -->
                <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#pubs">Publication</a>
                </li>
@@ -93,7 +98,8 @@
 
             <!-- <div class="venue"><h5>European Conference on Computer Vision (<a href="https://eccv2022.ecva.net/" target="_blank">ECCV</a>) 2022<h5></div> -->
 
-            <p class="lead"><b>TL;DR: </b><i>Given a monocular video, 3DGS-Avatar learns clothed human avatars that
+            <p class="lead"><strong>TL;DR:</strong> <i>Given a monocular video, 3DGS-Avatar learns clothed human avatars
+                  that
                   model pose-dependent appearance and
                   generalize to out-of-distribution poses, with short training time and interactive rendering frame
                   rate.</i>
@@ -105,7 +111,8 @@
                   <a class="publink" href="https://arxiv.org/abs/2210.10036" target="_blank"
                      style="text-decoration: none"> <i class="fa fa-print"></i> Paper </a> &nbsp;
                   &nbsp;&nbsp;
-                  <a class="publink" href="" target="_blank" style="text-decoration: none">
+                  <a class="publink" href="https://github.com/mikeqzy/3dgs-avatar-release" target="_blank"
+                     style="text-decoration: none">
                      <i class="fa fa-github"></i> Code (TBA) </a>
                   <h3>
             </div>
@@ -123,14 +130,16 @@
                   We introduce the first approach that creates animatable human avatars from monocular videos using <a
                      href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting (3DGS)</a>.
                   we use 3D Gaussian Splatting and learn a non-rigid deformation network to reconstruct animatable
-                  clothed human avatars that can be trained within 30 minutes and rendered at real-time frame rates (50+
-                  FPS).
-                  Given the explicit nature of our representation, we further introduce as-isometric-as-possible
+                  clothed human avatars that can be trained <strong>within 30 minutes</strong> and rendered at
+                  <strong>real-time frame rates (50+
+                     FPS)</strong>.
+                  Given the explicit nature of our representation, we further introduce <i>as-isometric-as-possible</i>
                   regularizations on both the Gaussian mean vectors and the covariance matrices, enhancing the
                   generalization of our model on highly articulated unseen poses.
                   Experimental results show that our method achieves comparable and even better performance compared to
-                  state-of-the-art approaches on animatable avatar creation from a monocular input, while being 400x and
-                  250x faster in training and inference respectively.
+                  state-of-the-art approaches on animatable avatar creation from a monocular input, while being
+                  <strong>400x</strong> and
+                  <strong>250x</strong> faster in training and inference respectively.
                </p>
                <div class="img-wide text-center">
                   <p><img class="img-fluid" alt="teaser" src="images/teaser_large.png" width=1000></p>
@@ -139,16 +148,20 @@
                <h3>Overview</h3>
                <p class="lead text-justify">
                   Our method optimizes a set of 3D Gaussians in canonical space, which is initialized via sampling
-                  points from canonical SMPL mesh surface.
-                  Each canonical Gaussian goes through a non-rigid deformation module conditioned on an encoded pose
-                  vector (Section 4.1) and outputs the deformed 3D Gaussian and a pose-dependent latent feature.
-                  The deformed 3D Gaussian is further transformed to the observation space (Section 4.2) via forward
-                  skinning with learned skinning weights.
+                  points from a canonical SMPL mesh surface.
+                  Each canonical Gaussian first goes through a non-rigid deformation module conditioned on an encoded
+                  pose
+                  vector (Section 4.1) to model pose-dependent cloth deformation,
+                  then transformed to the observation space (Section 4.2) via forward skinning with learned skinning
+                  weights.
                   Note that our method only learns skinning field in canonical space and requires no inverse skinning
-                  which is typically difficult to compute and often leads to multiple solutions, thus showing good
-                  generalizatin to unseen poses.
-                  The Gaussian feature, along with the pose-dependent feature, a per-frame latent code and the ray
-                  direction, are propagated through a small MLP to decode the view-dependent color for each 3D Gaussian.
+                  which is typically difficult to compute and often leads to multiple solutions. Hence we show good
+                  generalization to unseen poses.
+                  Instead of spherical harmonics, we use a small MLP to decode color for each Gaussian, which is
+                  designed to be responsive
+                  to local non-rigid deformations and dynamic lighting conditions, ensuring a more realistic rendering
+                  of the avatar's
+                  appearance.
                   Finally, the observation space 3D Gaussians and their respective color values are accumulated via
                   differentiable Gaussian rasterization to render the image.
                   We additionally apply <i>as-isometric-as-possible</i> regularization to both the Gaussian mean and
@@ -164,20 +177,23 @@
       </div>
    </section>
 
-   <!-- Replace video link -->
+   <!-- TODO: Replace video link -->
    <section id="video" class="">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-10 mx-auto">
-                  <h2 class="section-title-tc">Video</h2>
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FHlq0BCHki0" title="Video Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  </div>
-		  <br><br>
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 mx-auto">
+               <h2 class="section-title-tc">Video</h2>
+               <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FHlq0BCHki0"
+                     title="Video Presentation" frameborder="0"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                     allowfullscreen></iframe>
                </div>
+               <br><br>
             </div>
          </div>
-      </section>
+      </div>
+   </section>
 
 
    <section id="results" class="">
@@ -186,48 +202,84 @@
             <div class="col-lg-10 mx-auto"> <!-- changed alignment -->
                <h2 class="section-title-tc">Results</h2>
                <p class="lead text-justify">
-                  Comparison to baselines, trained with 4-views, 300 frames
+                  Comparison to baselines, trained from monocular videos.
                </p>
+               <video width="100%" height="auto" id="comparison" playsinline="" preload="" muted="" controls>
+                  <source type="video/mp4" src="videos/comparison_to_baselines.mp4" />
+               </video>
+               <br><hr><br>
 
-               <!-- copied from HumanNeRF website -->
+               <p class="lead text-justify">
+                  Novel view synthesis on ZJU-MoCap, evaluated on the camera furthest from the training view.
+               </p>
+               <!-- adapted from HumanNeRF website -->
                <nav>
                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                     <button class="nav-item nav-link active" id="tab-377" data-bs-toggle="tab" data-bs-target="#video-377" role="tab" type="button" aria-controls="tab-377" aria-selected="true">377</button>
-                     <button class="nav-item nav-link" id="tab-386" data-bs-toggle="tab" data-bs-target="#video-386" role="tab" type="button" aria-controls="tab-386" aria-selected="false">386</button>
+                     <button class="nav-item nav-link active" id="tab-377" data-bs-toggle="tab"
+                        data-bs-target="#video-377" role="tab" type="button" aria-controls="tab-377"
+                        aria-selected="true">377</button>
+                     <button class="nav-item nav-link" id="tab-386" data-bs-toggle="tab" data-bs-target="#video-386"
+                        role="tab" type="button" aria-controls="tab-386" aria-selected="false">386</button>
                      <!-- <button class="nav-item nav-link" id="tab-387" data-bs-toggle="tab" data-bs-target="#video-387" role="tab" type="button" aria-controls="tab-387" aria-selected="false">387</button> -->
-                     <!-- <button class="nav-item nav-link" id="tab-392" data-bs-toggle="tab" data-bs-target="#video-392" role="tab" type="button" aria-controls="tab-392" aria-selected="false">392</button> -->
-                     <!-- <button class="nav-item nav-link" id="tab-393" data-bs-toggle="tab" data-bs-target="#video-393" role="tab" type="button" aria-controls="tab-393" aria-selected="false">393</button> -->
-                     <!-- <button class="nav-item nav-link" id="tab-394" data-bs-toggle="tab" data-bs-target="#video-394" role="tab" type="button" aria-controls="tab-394" aria-selected="false">394</button> -->
+                     <button class="nav-item nav-link" id="tab-392" data-bs-toggle="tab" data-bs-target="#video-392"
+                        role="tab" type="button" aria-controls="tab-392" aria-selected="false">392</button>
+                     <button class="nav-item nav-link" id="tab-393" data-bs-toggle="tab" data-bs-target="#video-393"
+                        role="tab" type="button" aria-controls="tab-393" aria-selected="false">393</button>
+                     <button class="nav-item nav-link" id="tab-394" data-bs-toggle="tab" data-bs-target="#video-394"
+                        role="tab" type="button" aria-controls="tab-394" aria-selected="false">394</button>
                   </div>
                </nav>
 
                <div class="tab-content" id="nav-tabContent">
-                  <div class="tab-pane fade text-center active show" id="video-377" role="tabpanel" aria-labelledby="tab-377" style="background-color: black;">
-                      <video width="60%" autoplay="" loop="" muted="" controls="">
-                          <source src="videos/377_nv_demo.mp4" type="video/mp4">
-                      </video>
+                  <div class="tab-pane fade text-center active show" id="video-377" role="tabpanel"
+                     aria-labelledby="tab-377" style="background-color: black;">
+                     <video width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/377_nv_demo.mp4" type="video/mp4">
+                     </video>
                   </div>
-                  <div class="tab-pane fade text-center" id="video-386" role="tabpanel" aria-labelledby="tab-386" style="background-color: black;">
-                      <video width="60%" autoplay="" loop="" muted="" controls="">
-                          <source src="videos/377_nv_demo.mp4" type="video/mp4">
-                      </video>
+                  <div class="tab-pane fade text-center" id="video-386" role="tabpanel" aria-labelledby="tab-386"
+                     style="background-color: black;">
+                     <video width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/386_nv_demo.mp4" type="video/mp4">
+                     </video>
                   </div>
-                  <!-- <div class="tab-pane fade text-center" id="video-392" role="tabpanel" aria-labelledby="tab-392" style="background-color: black;">
-                      <video width="60%" autoplay="" loop="" muted="" controls="">
-                          <source src="assets/zju/392.mp4" type="video/mp4">
-                      </video>
+                  <div class="tab-pane fade text-center" id="video-392" role="tabpanel" aria-labelledby="tab-392"
+                     style="background-color: black;">
+                     <video width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/392_nv_demo.mp4" type="video/mp4">
+                     </video>
                   </div>
-                  <div class="tab-pane fade text-center" id="video-393" role="tabpanel" aria-labelledby="tab-393" style="background-color: black;">
-                      <video width="60%" autoplay="" loop="" muted="" controls="">
-                          <source src="assets/zju/393.mp4" type="video/mp4">
-                      </video>
+                  <div class="tab-pane fade text-center" id="video-393" role="tabpanel" aria-labelledby="tab-393"
+                     style="background-color: black;">
+                     <video width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/393_nv_demo.mp4" type="video/mp4">
+                     </video>
                   </div>
-                  <div class="tab-pane fade text-center" id="video-394" role="tabpanel" aria-labelledby="tab-394" style="background-color: black;">
-                      <video width="60%" autoplay="" loop="" muted="" controls="">
-                          <source src="assets/zju/394.mp4" type="video/mp4">
-                      </video>
-                  </div> -->
-              </div>
+                  <div class="tab-pane fade text-center" id="video-394" role="tabpanel" aria-labelledby="tab-394"
+                     style="background-color: black;">
+                     <video width="40%" autoplay="" loop="" muted="" controls="">
+                        <source src="videos/394_nv_demo.mp4" type="video/mp4">
+                     </video>
+                  </div>
+               </div>
+               <br><hr><br>
+
+
+               <p class="lead text-justify">
+                  Out-of-distribution generalization on ZJU-MoCap
+               </p>
+               <video width="100%" height="auto" id="ood-pose" autoplay="" loop="" playsinline="" preload="" muted="" controls>
+                  <source type="video/mp4" src="videos/dance1_demo.mp4" />
+               </video>
+               <br><hr><br>
+
+               <p class="lead text-justify">
+                  Results on PeopleSnapshot
+               </p>
+               <video width="100%" height="auto" id="ood-pose" autoplay="" loop="" playsinline="" preload="" muted="" controls>
+                  <source type="video/mp4" src="videos/ps_rotate.mp4" />
+               </video>
+               <br><br>
 
 
                <!-- <video width="80%" height="auto" id="home2" playsinline="" preload="" muted="" controls>
@@ -255,8 +307,7 @@
       </div>
    </section>
 
-   <!-- TODO: change code path -->
-   <section id="code" class="">
+   <!-- <section id="code" class="">
       <div class="container">
          <div class="row">
             <div class="col-lg-10 mx-auto">
@@ -267,7 +318,7 @@
             </div>
          </div>
       </div>
-   </section>
+   </section> -->
 
    <!-- <section id="poster" class="">
       <div class="container">
@@ -294,7 +345,7 @@
                <a class="publink" target="_blank" href=""><b>
                      3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting</b><br></a>
                <!-- In Proceedings of European Conference on Computer Vision. 2022 -->
-               <!-- <br><br> -->
+               <br><br>
                <!-- TODO: replace citation reference, add arxiv href -->
                <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">@InProceedings{ARAH:ECCV:2022,
   title = {ARAH: Animatable Volume Rendering of Articulated Human SDFs},
