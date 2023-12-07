@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="IntrinsicAvatar learns relightable and animatable avatars from monocular videos, without any data-driven priors.">
+      <meta name="author" content="Shaofei Wang">
+      <title>IntrinsicAvatar: Physically Based Inverse Rendering of Dynamic Humans from Monocular Videos via Explicit Ray Tracing</title>
+      <meta property="og:title" content="IntrinsicAvatar: Physically Based Inverse Rendering of Dynamic Humans from Monocular Videos via Explicit Ray Tracing" />
+      <meta property="og:description" content="Given a monocular video, IntrinsicAvatar learns animatable clothed human avatars with decomposed intrinsic properties including albedo, material, and geometry.">
+      <meta property="og:image" content="https://neuralavatars.github.io/IntrinsicAvatar/images/teaser_large.png" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="IntrinsicAvatar: Physically Based Inverse Rendering of Dynamic Humans from Monocular Videos via Explicit Ray Tracing" />
+      <meta name="twitter:description" content="IntrinsicAvatar learns relightable and animatable avatars from monocular videos, without any data-driven priors." />
+      <meta name="twitter:image" content="https://neuralavatars.github.io/IntrinsicAvatar/images/teaser_large.png" />
+      <meta name="twitter:image:alt" content="IntrinsicAvatar" />
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <!-- nice figures  -->
+      <link rel="stylesheet" href="css/font-awesome.css">
+      <link rel="icon" type="image/png" href="images/intrinsic_avatar_icon.png">
+      <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+      </script>
+   </head>
+   <body id="page-top">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">IntrinsicAvatar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#video">Video</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#results">Results</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#code">Code</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#preprint">Pre-print</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <header class="bg-light text-black">
+         <div class="container text-center">
+            <h1>IntrinsicAvatar </h1>
+            <h2>Physically Based Inverse Rendering of Dynamic Humans from Monocular Videos via Explicit Ray Tracing</h2>
+
+	   <div class="section head">
+
+	     <div class="authors">
+               <h5>
+                 <a href="https://taconite.github.io">Shaofei Wang</a><sup>1,2,3</sup>&nbsp;
+                 <a href="https://bozidarantic.com/">Božidar Antić</a><sup>2,3</sup>&nbsp;
+                 <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>2,3</sup>&nbsp;
+                 <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">Siyu Tang</a><sup>1</sup>
+               <h5>
+             </div>
+	     <div class="affiliations">
+               <h5>
+                 <sup>1</sup><a href="https://ethz.ch/en.html">ETH Zürich</a>&nbsp; &nbsp;&nbsp;
+                 <sup>2</sup><a href="https://uni-tuebingen.de/">University of Tübingen</a> &nbsp;&nbsp;
+                 <sup>3</sup><a href="https://uni-tuebingen.de/">Tübingen AI Center</a>
+               <h5>
+             </div>
+
+	     <div class="venue"><h5>arXiv 2023<h5></div>
+
+             <p class="lead"><i>Given a monocular video, IntrinsicAvatar learns animatable clothed human avatars with decomposed intrinsic properties including albedo, material, and geometry.</i>
+             </p>
+
+	     <div class="downloads">
+                 <br><h3>
+                 <a class="publink" href="" target="_blank" style="text-decoration: none"> Paper <i class="fa fa-print"></i></a> &nbsp;
+                 &nbsp;&nbsp;
+                 <a class="publink" href="https://github.com/taconite/IntrinsicAvatar" target="_blank" style="text-decoration: none"> Code (Coming Soon) <i class="fa fa-github"></i></a>
+                 <h3>
+	     </div>
+
+           </div>
+	 </div>
+      </header>
+      <section id="about" class="about-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <p class="lead text-justify">
+                  IntrinsicAvatar employs volumetric scattering and explicit ray tracing to learn relightable and animatable avatars from monocular videos. Learning an avatar can be done in less than 4 hours while the learned avatars can be rendered under novel poses and lighting conditions.
+                  </p>
+                  <div class="img-wide text-center">
+                     <p><img class="img-fluid overflow-image" alt="teaser" src="images/teaser_large.png" width=2000></p>
+                  </div>
+                  <br><br>
+                  <h3>Overview</h3>
+                  <p class="lead text-justify">
+                  Given an input image and associated camera rays, we warp the rays to the canonical space and do both primary and secondary ray marching/tracing in canonical space. We model geometry with a geometry hash grid \( \gamma_g \) and MLP \( f_g \), while also modeling volumetric radiance and material with an appearance grid \( \gamma_c \) and two additional MLPs \( f_{rf}, f_m \). We supervise both \( C_{rf} \) and \( C_{pbr} \) using a L1 loss w.r.t. the input image. Importantly, we model the physically based inverse rendering process with volumetric scattering and explict secondary ray tracing.
+                  </p>
+                  <div class="text-center">
+                     <p><img class="img-fluid" alt="method overview" src="images/pipeline.png"></p>
+                  </div>
+                  <br>
+                  <h3>Volumetric Scattering</h3>
+                  <p class="lead text-justify">
+                  Instead of following the standard rendering equation that was designed specifically for surface rendering, we trace back the root of the popular neural radiance field, which is the radiative transfer equation. We formulate the inverse rendering problem as a volumetric scattering process, which is shown to be more robust than surface rendering when abrupt depth changes are present.
+                  </p>
+                  <div class="text-center">
+                     <p><img class="img-fluid" alt="method overview" src="images/volume_scatter.png"></p>
+                  </div>
+                  <br><br>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="video" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Video</h2>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/aS8AIxgVXzI" title="Video Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+		  <br><br>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="results" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-12 text-center">
+                  <h2 class="section-title-tc">Results</h2>
+		  <p class="lead text-justify">
+		    Comparison to the baseline
+		  </p>
+          <video width="80%" height="auto" id="home2" playsinline="" preload="" muted="" controls> 
+		    <source type="video/mp4" src="videos/comparison_to_baseline.mp4" /> 
+		  </video>
+                  <br><br>
+		  <p class="lead text-justify">
+		    More results on animation and relighting of our approach
+		  </p>
+          <video width="80%" height="auto" id="home2" playsinline="" preload="" muted="" controls> 
+		    <source type="video/mp4" src="videos/animation_relighting.mp4" /> 
+		  </video>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="code" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">
+                    <a class="publink" target="_blank" href="https://github.com/taconite/arah-release" style="text-decoration: none">Code (Coming soon) <i class="fa fa-github"></i></a>
+                  </h2>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="preprint" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Preprint</h2>
+                  <br>
+                  Shaofei Wang, Božidar Antić, Andreas Geiger, Siyu Tang<br>
+                  <a class="publink" target="_blank" href=""><b>IntrinsicAvatar: Physically Based Inverse Rendering of Dynamic Humans from Monocular Videos via Explicit Ray Tracing</b><br></a>
+                  arXiv preprint. 2023
+                  <br><br>
+                  <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">@Article{WangARXIV2023,
+         title   = {IntrinsicAvatar: Physically Based Inverse Rendering of Dynamic Humans from Monocular Videos via Explicit Ray Tracing},
+         author  = {Shaofei Wang and Bo\v{z}idar Anti\'{c} and Andreas Geiger and Siyu Tang},
+         journal = {arXiv.org},
+         volume  = {TODO},
+         year    = {2023}
+}</pre>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+         <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; VLG 2022</p>
+         </div>
+         <!-- /.container -->
+      </footer>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Plugin JavaScript -->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Custom JavaScript for this theme -->
+      <script src="js/scrolling-nav.js"></script>
+   </body>
+</html>
