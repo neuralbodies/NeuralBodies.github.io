@@ -31,6 +31,15 @@
    <link rel="stylesheet" href="css/font-awesome.css">
    <link rel="icon" type="image/png" href="images/favicon.jpg">
 
+   <style>
+      /* Style to hide the video controls for a specific video with id="myVideo" */
+      video:not(#comparison)::-webkit-media-controls,
+      video:not(#comparison)::-webkit-media-controls-enclosure,
+      video:not(#comparison)::-webkit-media-controls-panel {
+         display: none !important;
+      }
+  </style>
+
 </head>
 
 <body id="page-top">
@@ -202,10 +211,10 @@
             <div class="col-lg-10 mx-auto"> <!-- changed alignment -->
                <h2 class="section-title-tc">Results</h2>
                <p class="lead text-justify">
-                  Comparison to baselines, trained from monocular videos.
+                  Comparison to baselines, trained from monocular videos on ZJU-MoCap.
                </p>
-               <video width="100%" height="auto" id="comparison" playsinline="" preload="" muted="" controls>
-                  <source type="video/mp4" src="videos/comparison_to_baselines.mp4" />
+               <video width="100%" height="auto" id="comparison" playsinline="" preload="" controls>
+                  <source type="video/mp4" src="videos/3DGS-Avatar_comparison.mp4" />
                </video>
                <br><hr><br>
 
@@ -276,7 +285,7 @@
                <p class="lead text-justify">
                   Results on PeopleSnapshot
                </p>
-               <video width="100%" height="auto" id="ood-pose" autoplay="" loop="" playsinline="" preload="" muted="" controls>
+               <video width="100%" height="auto" id="ps" poster="" autoplay="" loop="" playsinline="" preload="" muted="" controls>
                   <source type="video/mp4" src="videos/ps_rotate.mp4" />
                </video>
                <br><br>
