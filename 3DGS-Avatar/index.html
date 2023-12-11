@@ -38,7 +38,7 @@
       video:not(#comparison)::-webkit-media-controls-panel {
          display: none !important;
       }
-  </style>
+   </style>
 
 </head>
 
@@ -99,7 +99,7 @@
             <div class="affiliations">
                <h5>
                   <sup>1</sup><a href="https://ethz.ch/en.html">ETH Zürich</a>&nbsp; &nbsp;&nbsp;
-                  <sup>2</sup><a href="https://is.mpg.de/">University of Tübingen<br></a>
+                  <sup>2</sup><a href="https://uni-tuebingen.de/">University of Tübingen<br></a>
                   <sup>3</sup><a href="https://uni-tuebingen.de/">Tübingen AI Center</a> &nbsp;&nbsp;
                   <h5>
             </div>
@@ -209,41 +209,139 @@
          <div class="row">
             <div class="col-lg-10 mx-auto"> <!-- changed alignment -->
                <h2 class="section-title-tc">Results</h2>
-               <p class="lead text-justify">
+               
+               <!-- <p class="lead text-justify">
                   Comparison to baselines, trained from monocular videos on ZJU-MoCap.
                </p>
                <video width="100%" height="auto" id="comparison" playsinline="" preload="" controls>
                   <source type="video/mp4" src="videos/3DGS-Avatar_comparison.mp4" />
                </video>
-               <br><hr><br>
+               <br>
+               <hr><br> -->
 
                <p class="lead text-justify">
-                  Slider Comparison on Novel View Synthesis
+                  Comparison to baselines. The training time and rendering frame rate is marked under the method name.
                </p>
                <div class="d-none d-md-block text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <p> Novel view synthesis</p>
                   <div style="display: flex;">
-                     <div style="flex: 1; ">
-                         <!-- Content for the first div -->
-                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted="" controls="" loop="" id="test" src="./videos/ps_rotate.mp4" onplay="resizeAndPlay(this)"></video>
-                           <canvas class="d-none d-md-block" width="512" height="512" id="testMerge"></canvas>
+                     <div style="flex: 1; box-sizing: border-box;">
+                        <!-- Content for the first div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="nvr387" src="./videos/slider/slider_instant-nvr_387_c12.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="nvr387Merge"></canvas>
                         </div>
                      </div>
-                     <div style="flex: 1; ">
-                         <!-- Content for the second div -->
-                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted="" controls="" loop="" id="xxx" src="./videos/ps_rotate.mp4" onplay="resizeAndPlay(this)"></video>
-                           <canvas class="d-none d-md-block" width="512" height="512" id="xxxMerge"></canvas>
+                     <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
+                        <!-- Content for the second div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="nvr392" src="./videos/slider/slider_instant-nvr_392_c12.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="nvr392Merge"></canvas>
                         </div>
                      </div>
-                 </div>
-                  
+                  </div>
+                  <br>
+
+                  <div style="display: flex;">
+                     <div style="flex: 1; box-sizing: border-box;">
+                        <!-- Content for the first div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="arah377" src="./videos/slider/slider_arah_377_c12.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="arah377Merge"></canvas>
+                        </div>
+                     </div>
+                     <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
+                        <!-- Content for the second div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="arah386" src="./videos/slider/slider_arah_386_c12.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="arah386Merge"></canvas>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+
+                  <div style="display: flex;">
+                     <div style="flex: 1; box-sizing: border-box;">
+                        <!-- Content for the first div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="humannerf377" src="./videos/slider/slider_humannerf_377_c12.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="humannerf377Merge"></canvas>
+                        </div>
+                     </div>
+                     <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
+                        <!-- Content for the second div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="humannerf386" src="./videos/slider/slider_humannerf_386_c12.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="humannerf386Merge"></canvas>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+
+                  <p> Animation on out-of-distribution poses</p>
+                  <div style="display: flex;">
+                     <div style="flex: 1; box-sizing: border-box;">
+                        <!-- Content for the first div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="arah392dance1" src="./videos/slider/slider_arah_392_dance1.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="arah392dance1Merge"></canvas>
+                        </div>
+                     </div>
+                     <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
+                        <!-- Content for the second div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="arah394flip" src="./videos/slider/slider_arah_394_flipping.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="arah394flipMerge"></canvas>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+
+                  <div style="display: flex;">
+                     <div style="flex: 1; box-sizing: border-box;">
+                        <!-- Content for the first div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="humannerf392dance1" src="./videos/slider/slider_humannerf_392_dance1.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="humannerf392dance1Merge"></canvas>
+                        </div>
+                     </div>
+                     <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
+                        <!-- Content for the second div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="humannerf394flip" src="./videos/slider/slider_humannerf_394_flipping.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="humannerf394flipMerge"></canvas>
+                        </div>
+                     </div>
+                  </div>
+
+
                   <!-- <div width="100%">
                      <video class="d-none d-md-block" width="1024" style="height: 0px;" autoplay="" muted="" controls="" loop="" id="test" src="./videos/ps_rotate.mp4" onplay="resizeAndPlay(this)"></video>
                      <canvas class="d-none d-md-block" width="1024" height="512" id="testMerge"></canvas>
                   </div> -->
                </div>
-               <br><hr><br>
+               <br>
+               <hr><br>
 
                <p class="lead text-justify">
                   Novel view synthesis results on ZJU-MoCap, evaluated on the camera furthest from the training view.
@@ -270,49 +368,53 @@
                   <div class="tab-pane fade text-center active show" id="video-377" role="tabpanel"
                      aria-labelledby="tab-377" style="background-color: black;">
                      <video width="40%" autoplay="" loop="" muted="" controls="">
-                        <source src="videos/377_nv_demo.mp4" type="video/mp4">
+                        <source src="videos/nv_demo/377_nv_demo.mp4" type="video/mp4">
                      </video>
                   </div>
                   <div class="tab-pane fade text-center" id="video-386" role="tabpanel" aria-labelledby="tab-386"
                      style="background-color: black;">
                      <video width="40%" autoplay="" loop="" muted="" controls="">
-                        <source src="videos/386_nv_demo.mp4" type="video/mp4">
+                        <source src="videos/nv_demo/386_nv_demo.mp4" type="video/mp4">
                      </video>
                   </div>
                   <div class="tab-pane fade text-center" id="video-392" role="tabpanel" aria-labelledby="tab-392"
                      style="background-color: black;">
                      <video width="40%" autoplay="" loop="" muted="" controls="">
-                        <source src="videos/392_nv_demo.mp4" type="video/mp4">
+                        <source src="videos/nv_demo/392_nv_demo.mp4" type="video/mp4">
                      </video>
                   </div>
                   <div class="tab-pane fade text-center" id="video-393" role="tabpanel" aria-labelledby="tab-393"
                      style="background-color: black;">
                      <video width="40%" autoplay="" loop="" muted="" controls="">
-                        <source src="videos/393_nv_demo.mp4" type="video/mp4">
+                        <source src="videos/nv_demo/393_nv_demo.mp4" type="video/mp4">
                      </video>
                   </div>
                   <div class="tab-pane fade text-center" id="video-394" role="tabpanel" aria-labelledby="tab-394"
                      style="background-color: black;">
                      <video width="40%" autoplay="" loop="" muted="" controls="">
-                        <source src="videos/394_nv_demo.mp4" type="video/mp4">
+                        <source src="videos/nv_demo/394_nv_demo.mp4" type="video/mp4">
                      </video>
                   </div>
                </div>
-               <br><hr><br>
+               <br>
+               <hr><br>
 
 
                <p class="lead text-justify">
                   Animation results on out-of-distribution poses
                </p>
-               <video width="100%" height="auto" id="ood-pose" autoplay="" loop="" playsinline="" preload="" muted="" controls>
+               <video width="100%" height="auto" id="ood-pose" autoplay="" loop="" playsinline="" preload="" muted=""
+                  controls>
                   <source type="video/mp4" src="videos/dance1_demo.mp4" />
                </video>
-               <br><hr><br>
+               <br>
+               <hr><br>
 
                <p class="lead text-justify">
                   Reconstructed avatars on PeopleSnapshot
                </p>
-               <video width="100%" height="auto" id="ps" poster="" autoplay="" loop="" playsinline="" preload="" muted="" controls>
+               <video width="100%" height="auto" id="ps" poster="" autoplay="" loop="" playsinline="" preload=""
+                  muted="" controls>
                   <source type="video/mp4" src="videos/ps_rotate.mp4" />
                </video>
                <br><br>
@@ -409,7 +511,9 @@
    <!-- Custom JavaScript for this theme -->
    <script src="js/scrolling-nav.js"></script>
    <!-- From ResField -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="./js/index.js"></script>
 </body>
