@@ -176,3 +176,8 @@ a:hover, a:focus, a:active {
     border-radius: 50%;
 }
 
+canvas {
+    /* override other styles to make responsive */
+    width: 100%    !important;
+    height: auto   !important;
+}
