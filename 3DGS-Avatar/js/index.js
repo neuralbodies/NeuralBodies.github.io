@@ -56,7 +56,7 @@ function playVids(videoId) {
             mergeContext.lineTo(vidWidth*position, vidHeight);
             mergeContext.closePath()
             mergeContext.strokeStyle = "#444444";
-            mergeContext.lineWidth = 5;            
+            mergeContext.lineWidth = 3;            
             mergeContext.stroke();
   
             // Draw arrow

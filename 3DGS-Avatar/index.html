@@ -59,9 +59,9 @@
                <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#about">About</a>
                </li>
-               <li class="nav-item">
+               <!-- <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#video">Video</a>
-               </li>
+               </li> -->
                <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#results">Results</a>
                </li>
@@ -99,12 +99,13 @@
             <div class="affiliations">
                <h5>
                   <sup>1</sup><a href="https://ethz.ch/en.html">ETH Zürich</a>&nbsp; &nbsp;&nbsp;
-                  <sup>2</sup><a href="https://uni-tuebingen.de/">University of Tübingen<br></a>
-                  <sup>3</sup><a href="https://uni-tuebingen.de/">Tübingen AI Center</a> &nbsp;&nbsp;
-                  <h5>
+                  <sup>2</sup><a href="https://uni-tuebingen.de/">University of Tübingen</a>&nbsp; &nbsp;&nbsp;
+                  <sup>3</sup><a href="https://uni-tuebingen.de/">Tübingen AI Center</a> 
+               <h5>
             </div>
 
             <!-- <div class="venue"><h5>European Conference on Computer Vision (<a href="https://eccv2022.ecva.net/" target="_blank">ECCV</a>) 2022<h5></div> -->
+            <div class="venue"><h5>arXiv 2023<h5></div>
 
             <p class="lead"><strong>TL;DR:</strong> <i>Given a monocular video, 3DGS-Avatar learns clothed human avatars
                   that
@@ -134,7 +135,14 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-10 mx-auto">
-               <p class="lead text-justify">
+               <video width="100%" height="auto" id="teaser" autoplay="" loop="" playsinline="" preload="" muted=""
+               controls>
+                  <source type="video/mp4" src="videos/3DGS-Avatar_teaser_video_whitebg.mp4" />
+               </video>
+               <br><br>
+
+
+               <!-- <p class="lead text-justify">
                   We introduce the first approach that creates animatable human avatars from monocular videos using <a
                      href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting (3DGS)</a>.
                   we use 3D Gaussian Splatting and learn a non-rigid deformation network to reconstruct animatable
@@ -151,7 +159,7 @@
                </p>
                <div class="img-wide text-center">
                   <p><img class="img-fluid" alt="teaser" src="images/teaser_large.png" width=1000></p>
-               </div>
+               </div> -->
                <br><br>
                <h3>Overview</h3>
                <p class="lead text-justify">
@@ -186,7 +194,7 @@
    </section>
 
    <!-- TODO: Replace video link -->
-   <section id="video" class="">
+   <!-- <section id="video" class="">
       <div class="container">
          <div class="row">
             <div class="col-lg-10 mx-auto">
@@ -201,7 +209,7 @@
             </div>
          </div>
       </div>
-   </section>
+   </section> -->
 
 
    <section id="results" class="">
@@ -220,10 +228,65 @@
                <hr><br> -->
 
                <p class="lead text-justify">
-                  Comparison to baselines. The training time and rendering frame rate is marked under the method name.
+                  Comparison to baselines. The training time and rendering frame rate is marked under the methods.
                </p>
+
+               <!-- Phone -->
+
+               <div class="d-md-none text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h4> Novel view synthesis</h4>
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_instant-nvr_387_c12.mp4"></video>
+                  </div>
+                  
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_instant-nvr_392_c12.mp4"></video>
+                  </div>
+                  <hr>
+                  
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_arah_377_c12.mp4"></video>
+                  </div>
+
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_arah_394_c12.mp4"></video>
+                  </div>
+                  <hr>
+
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_humannerf_386_c12.mp4"></video>
+                  </div>
+
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_humannerf_394_c12.mp4"></video>
+                  </div>
+                  <br>
+
+                  <h4> Animation on out-of-distribution poses</h4>
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_arah_392_dance1.mp4"></video>
+                  </div>
+
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_arah_394_flipping.mp4"></video>
+                  </div>
+                  <hr>
+
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_humannerf_392_dance1.mp4"></video>
+                  </div>
+
+                  <div width="100%">
+                     <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_humannerf_394_flipping.mp4"></video>
+                  </div>
+                  <br>
+
+
+               </div>
+
+               <!-- Laptop -->
                <div class="d-none d-md-block text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <p> Novel view synthesis</p>
+                  <h4> Novel view synthesis</h4>
                   <div style="display: flex;">
                      <div style="flex: 1; box-sizing: border-box;">
                         <!-- Content for the first div -->
@@ -244,7 +307,7 @@
                         </div>
                      </div>
                   </div>
-                  <br>
+                  <hr>
 
                   <div style="display: flex;">
                      <div style="flex: 1; box-sizing: border-box;">
@@ -260,26 +323,17 @@
                         <!-- Content for the second div -->
                         <div width="100%">
                            <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
-                              controls="" loop="" id="arah386" src="./videos/slider/slider_arah_386_c12.mp4"
+                              controls="" loop="" id="arah394" src="./videos/slider/slider_arah_394_c12.mp4"
                               onplay="resizeAndPlay(this)"></video>
-                           <canvas class="d-none d-md-block" width="512" height="512" id="arah386Merge"></canvas>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="arah394Merge"></canvas>
                         </div>
                      </div>
                   </div>
-                  <br>
+                  <hr>
 
                   <div style="display: flex;">
                      <div style="flex: 1; box-sizing: border-box;">
                         <!-- Content for the first div -->
-                        <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
-                              controls="" loop="" id="humannerf377" src="./videos/slider/slider_humannerf_377_c12.mp4"
-                              onplay="resizeAndPlay(this)"></video>
-                           <canvas class="d-none d-md-block" width="512" height="512" id="humannerf377Merge"></canvas>
-                        </div>
-                     </div>
-                     <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
-                        <!-- Content for the second div -->
                         <div width="100%">
                            <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="humannerf386" src="./videos/slider/slider_humannerf_386_c12.mp4"
@@ -287,10 +341,19 @@
                            <canvas class="d-none d-md-block" width="512" height="512" id="humannerf386Merge"></canvas>
                         </div>
                      </div>
+                     <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
+                        <!-- Content for the second div -->
+                        <div width="100%">
+                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                              controls="" loop="" id="humannerf394" src="./videos/slider/slider_humannerf_394_c12.mp4"
+                              onplay="resizeAndPlay(this)"></video>
+                           <canvas class="d-none d-md-block" width="512" height="512" id="humannerf394Merge"></canvas>
+                        </div>
+                     </div>
                   </div>
                   <br>
 
-                  <p> Animation on out-of-distribution poses</p>
+                  <h4> Animation on out-of-distribution poses</h4>
                   <div style="display: flex;">
                      <div style="flex: 1; box-sizing: border-box;">
                         <!-- Content for the first div -->
@@ -311,7 +374,7 @@
                         </div>
                      </div>
                   </div>
-                  <br>
+                  <hr>
 
                   <div style="display: flex;">
                      <div style="flex: 1; box-sizing: border-box;">
@@ -345,6 +408,7 @@
 
                <p class="lead text-justify">
                   Novel view synthesis results on ZJU-MoCap, evaluated on the camera furthest from the training view.
+                  We additionally demonstrate 360-degree freeview rendering on certain frames.
                </p>
                <!-- adapted from HumanNeRF website -->
                <nav>
@@ -400,7 +464,7 @@
                <hr><br>
 
 
-               <p class="lead text-justify">
+               <!-- <p class="lead text-justify">
                   Animation results on out-of-distribution poses
                </p>
                <video width="100%" height="auto" id="ood-pose" autoplay="" loop="" playsinline="" preload="" muted=""
@@ -408,10 +472,10 @@
                   <source type="video/mp4" src="videos/dance1_demo.mp4" />
                </video>
                <br>
-               <hr><br>
+               <hr><br> -->
 
                <p class="lead text-justify">
-                  Reconstructed avatars on PeopleSnapshot
+                  Reconstructed avatars on PeopleSnapshot.
                </p>
                <video width="100%" height="auto" id="ps" poster="" autoplay="" loop="" playsinline="" preload=""
                   muted="" controls>
