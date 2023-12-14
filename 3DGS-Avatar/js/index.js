@@ -39,7 +39,7 @@ function playVids(videoId) {
             var arrowLength = 0.09 * vidHeight;
             var arrowheadWidth = 0.025 * vidHeight;
             var arrowheadLength = 0.04 * vidHeight;
-            var arrowPosY = vidHeight / 10;
+            var arrowPosY = vidHeight / 13;
             var arrowWidth = 0.007 * vidHeight;
             var currX = vidWidth * position;
   
@@ -55,7 +55,7 @@ function playVids(videoId) {
             mergeContext.moveTo(vidWidth*position, 0);
             mergeContext.lineTo(vidWidth*position, vidHeight);
             mergeContext.closePath()
-            mergeContext.strokeStyle = "#444444";
+            mergeContext.strokeStyle = "#AAAAAA";
             mergeContext.lineWidth = 3;            
             mergeContext.stroke();
   
@@ -86,7 +86,7 @@ function playVids(videoId) {
   
             mergeContext.closePath();
   
-            mergeContext.fillStyle = "#444444";
+            mergeContext.fillStyle = "#AAAAAA";
             mergeContext.fill();
         }
         requestAnimationFrame(drawLoop);
