@@ -82,15 +82,31 @@
 
    <header class="bg-light text-black">
       <div class="container text-center">
-         <h1>3DGS-Avatar </h1>
-         <h2>Animatable Avatars via Deformable 3D Gaussian Splatting</h2>
+
+         <!-- Phone -->
+         <h1 class="d-md-none" style="font-size: 3.2em;">3DGS-Avatar </h1>
+         <h3 class="d-md-none">Animatable Avatars via Deformable 3D Gaussian Splatting</h3>
+
+         <!-- Laptop -->
+         <h1 class="d-none d-md-block">3DGS-Avatar </h1>
+         <h2 class="d-none d-md-block">Animatable Avatars via Deformable 3D Gaussian Splatting</h2>
 
          <div class="section head">
 
-            <div class="authors">
+            <div class="d-md-none authors">
                <h5>
                   <a href="https://mikeqzy.github.io">Zhiyin Qian</a><sup>1</sup>&nbsp;
-                  <a href="https://taconite.github.io">Shaofei Wang</a><sup>1</sup>&nbsp;
+                  <a href="https://taconite.github.io">Shaofei Wang</a><sup>1,2,3</sup>&nbsp;<br>
+                  <a href="https://markomih.github.io/">Marko Mihajlovic</a><sup>1</sup>&nbsp;
+                  <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>2,3</sup>&nbsp;<br>
+                  <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">Siyu Tang</a><sup>1</sup>
+                  <h5>
+            </div>
+
+            <div class="d-none d-md-block authors">
+               <h5>
+                  <a href="https://mikeqzy.github.io">Zhiyin Qian</a><sup>1</sup>&nbsp;
+                  <a href="https://taconite.github.io">Shaofei Wang</a><sup>1,2,3</sup>&nbsp;
                   <a href="https://markomih.github.io/">Marko Mihajlovic</a><sup>1</sup>&nbsp;
                   <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>2,3</sup>&nbsp;
                   <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">Siyu Tang</a><sup>1</sup>
@@ -162,7 +178,30 @@
                </div> -->
                <br><br>
                <h3>Overview</h3>
-               <p class="lead text-justify">
+               <p class="d-md-none lead">
+                  Our method optimizes a set of 3D Gaussians in canonical space, which is initialized via sampling
+                  points from a canonical SMPL mesh surface.
+                  Each canonical Gaussian first goes through a non-rigid deformation module conditioned on an encoded
+                  pose
+                  vector (Section 4.1) to model pose-dependent cloth deformation,
+                  then transformed to the observation space (Section 4.2) via forward skinning with learned skinning
+                  weights.
+                  Note that our method only learns skinning field in canonical space and requires no inverse skinning
+                  which is typically difficult to compute and often leads to multiple solutions. Hence we show good
+                  generalization to unseen poses.
+                  Instead of spherical harmonics, we use a small MLP to decode color for each Gaussian, which is
+                  designed to be responsive
+                  to local non-rigid deformations and dynamic lighting conditions, ensuring a more realistic rendering
+                  of the avatar's
+                  appearance.
+                  Finally, the observation space 3D Gaussians and their respective color values are accumulated via
+                  differentiable Gaussian rasterization to render the image.
+                  We additionally apply <i>as-isometric-as-possible</i> regularization to both the Gaussian mean and
+                  covariance, which helps realistic deformation of the avatar, particularly in highly articulated and
+                  out-of-distribution poses.
+               </p>
+
+               <p class="d-none d-md-block lead text-justify">
                   Our method optimizes a set of 3D Gaussians in canonical space, which is initialized via sampling
                   points from a canonical SMPL mesh surface.
                   Each canonical Gaussian first goes through a non-rigid deformation module conditioned on an encoded
@@ -215,7 +254,7 @@
    <section id="results" class="">
       <div class="container">
          <div class="row">
-            <div class="col-lg-10 mx-auto"> <!-- changed alignment -->
+            <div class="col-lg-10 mx-auto">
                <h2 class="section-title-tc">Results</h2>
                
                <!-- <p class="lead text-justify">
@@ -227,7 +266,11 @@
                <br>
                <hr><br> -->
 
-               <p class="lead text-justify">
+               <p class="lead">
+                  <i> Please kindly refresh the page in the case that certain videos are missing.</i>
+               </p>
+               <hr>
+               <p class="lead">
                   Comparison to baselines. The training time and rendering frame rate is marked under the methods.
                </p>
 
@@ -242,7 +285,7 @@
                   <div width="100%">
                      <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_instant-nvr_392_c12.mp4"></video>
                   </div>
-                  <hr>
+                  <br>
                   
                   <div width="100%">
                      <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_arah_377_c12.mp4"></video>
@@ -251,7 +294,7 @@
                   <div width="100%">
                      <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_arah_394_c12.mp4"></video>
                   </div>
-                  <hr>
+                  <br>
 
                   <div width="100%">
                      <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_humannerf_386_c12.mp4"></video>
@@ -270,7 +313,7 @@
                   <div width="100%">
                      <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_arah_394_flipping.mp4"></video>
                   </div>
-                  <hr>
+                  <br>
 
                   <div width="100%">
                      <video class="d-md-none" width="100%" autoplay="" muted="" controls="" loop="" src="./videos/slider/slider_humannerf_392_dance1.mp4"></video>
@@ -291,7 +334,7 @@
                      <div style="flex: 1; box-sizing: border-box;">
                         <!-- Content for the first div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="nvr387" src="./videos/slider/slider_instant-nvr_387_c12.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="nvr387Merge"></canvas>
@@ -300,20 +343,20 @@
                      <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
                         <!-- Content for the second div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="nvr392" src="./videos/slider/slider_instant-nvr_392_c12.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="nvr392Merge"></canvas>
                         </div>
                      </div>
                   </div>
-                  <hr>
+                  <br>
 
                   <div style="display: flex;">
                      <div style="flex: 1; box-sizing: border-box;">
                         <!-- Content for the first div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="arah377" src="./videos/slider/slider_arah_377_c12.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="arah377Merge"></canvas>
@@ -322,20 +365,20 @@
                      <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
                         <!-- Content for the second div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="arah394" src="./videos/slider/slider_arah_394_c12.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="arah394Merge"></canvas>
                         </div>
                      </div>
                   </div>
-                  <hr>
+                  <br>
 
                   <div style="display: flex;">
                      <div style="flex: 1; box-sizing: border-box;">
                         <!-- Content for the first div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="humannerf386" src="./videos/slider/slider_humannerf_386_c12.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="humannerf386Merge"></canvas>
@@ -344,7 +387,7 @@
                      <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
                         <!-- Content for the second div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="humannerf394" src="./videos/slider/slider_humannerf_394_c12.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="humannerf394Merge"></canvas>
@@ -358,7 +401,7 @@
                      <div style="flex: 1; box-sizing: border-box;">
                         <!-- Content for the first div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="arah392dance1" src="./videos/slider/slider_arah_392_dance1.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="arah392dance1Merge"></canvas>
@@ -367,20 +410,20 @@
                      <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
                         <!-- Content for the second div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="arah394flip" src="./videos/slider/slider_arah_394_flipping.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="arah394flipMerge"></canvas>
                         </div>
                      </div>
                   </div>
-                  <hr>
+                  <br>
 
                   <div style="display: flex;">
                      <div style="flex: 1; box-sizing: border-box;">
                         <!-- Content for the first div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="humannerf392dance1" src="./videos/slider/slider_humannerf_392_dance1.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="humannerf392dance1Merge"></canvas>
@@ -389,7 +432,7 @@
                      <div style="flex: 1; box-sizing: border-box; margin-left: 10px;">
                         <!-- Content for the second div -->
                         <div width="100%">
-                           <video class="d-none d-md-block" width="512" style="height: 0px;" autoplay="" muted=""
+                           <video class="d-none d-md-block" width="50%" style="height: 0px;" autoplay="" muted=""
                               controls="" loop="" id="humannerf394flip" src="./videos/slider/slider_humannerf_394_flipping.mp4"
                               onplay="resizeAndPlay(this)"></video>
                            <canvas class="d-none d-md-block" width="512" height="512" id="humannerf394flipMerge"></canvas>
@@ -406,7 +449,7 @@
                <br>
                <hr><br>
 
-               <p class="lead text-justify">
+               <p class="lead">
                   Novel view synthesis results on ZJU-MoCap, evaluated on the camera furthest from the training view.
                   We additionally demonstrate 360-degree freeview rendering on certain frames.
                </p>
@@ -474,7 +517,7 @@
                <br>
                <hr><br> -->
 
-               <p class="lead text-justify">
+               <p class="lead">
                   Reconstructed avatars on PeopleSnapshot.
                </p>
                <video width="100%" height="auto" id="ps" poster="" autoplay="" loop="" playsinline="" preload=""
@@ -549,12 +592,13 @@
                <!-- In Proceedings of European Conference on Computer Vision. 2022 -->
                <br><br>
                <!-- TODO: replace citation reference, add arxiv href -->
-               <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">@InProceedings{ARAH:ECCV:2022,
+               <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">
+                  <!-- @InProceedings{ARAH:ECCV:2022,
   title = {ARAH: Animatable Volume Rendering of Articulated Human SDFs},
   author = {Shaofei Wang and Katja Schwarz and Andreas Geiger and Siyu Tang},
   booktitle = {European Conference on Computer Vision},
   year = {2022}
-}
+} -->
 </pre>
             </div>
          </div>
