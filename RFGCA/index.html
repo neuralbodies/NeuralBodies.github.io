@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="RFGCA learns high-fidelity relightable and drivable full-body avatars from light stage captures.">
+      <meta name="author" content="Shaofei Wang">
+      <title>Relightable Full-body Gaussian Codec Avatars</title>
+      <meta property="og:title" content="Relightable Full-body Gaussian Codec Avatars" />
+      <meta property="og:description" content="We present the first drivable full-body avatar model that reconstructs perceptually realistic relightable appearance.">
+      <meta property="og:image" content="https://neuralavatars.github.io/RFGCA/images/teaser_large.jpg" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Relightable Full-body Gaussian Codec Avatars" />
+      <meta name="twitter:description" content="RFGCA learns high-fidelity relightable and drivable full-body avatars from light stage captures." />
+      <meta name="twitter:image" content="https://neuralavatars.github.io/RFGCA/images/teaser_large.jpg" />
+      <meta name="twitter:image:alt" content="RFGCA" />
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <!-- nice figures  -->
+      <link rel="stylesheet" href="css/font-awesome.css">
+      <link rel="icon" type="image/jpg" href="images/icon.jpg">
+      <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+      </script>
+   </head>
+   <body id="page-top">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Relightable Full-body Gaussian Codec Avatars</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#video">Video</a>
+                  </li>
+                  <!--li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#results">Results</a>
+                  </li-->
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#preprint">Preprint</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <header class="bg-light text-black">
+         <div class="container text-center">
+            <h1>Relightable Full-body Gaussian Codec Avatars</h1>
+
+	   <div class="section head">
+
+	     <div class="authors">
+               <h5>
+                 <a href="https://taconite.github.io">Shaofei Wang</a><sup>1,2</sup>&nbsp;
+                 <a href="https://scholar.google.com/citations?user=7aabHgsAAAAJ&hl=en">Tomas Simon</a><sup>1</sup>&nbsp;
+                 <a href="https://isantesteban.com/">Igor Santesteban</a><sup>1</sup>&nbsp;
+                 <a href="https://scholar.google.ch/citations?user=oLi7xJ0AAAAJ&hl=en">Timur Bagautdinov</a><sup>1</sup>&nbsp;
+                 <a href="https://junxuan-li.github.io/">Junxuan Li</a><sup>1</sup>&nbsp;
+                 <a href="https://www.linkedin.com/in/vasuagrawal/">Vasu Agrawal</a><sup>1</sup>&nbsp;
+                 <a href="https://scholar.google.com/citations?user=s35rxJwAAAAJ&hl=en">Fabian Prada</a><sup>1</sup>&nbsp;
+                 <a href="https://sites.google.com/view/shoou-i-yu/home">Shoou-I Yu</a><sup>1</sup>&nbsp;
+                 <a href="https://www.linkedin.com/in/pace-nalbone/">Pace Nalbone</a><sup>1</sup>&nbsp;
+                 <a href="https://www.linkedin.com/in/mattgramlich/">Matt Gramlich</a><sup>1</sup>&nbsp;
+                 <a href="https://www.linkedin.com/in/roman-lubachersky-537307119/">Roman Lubachersky</a><sup>1</sup>&nbsp;
+                 <a href="https://sites.google.com/view/chengleiwu/">Chenglei Wu</a><sup>1</sup>&nbsp;
+                 <a href="https://scholar.google.com/citations?user=Wx62iOsAAAAJ&hl=en">Javier Romero</a><sup>1</sup>&nbsp;
+                 <a href="https://scholar.google.com/citations?user=ss-IvjMAAAAJ&hl=en">Jason Saragih</a><sup>1</sup>&nbsp;
+                 <a href="https://zollhoefer.com/">Michael Zollhoefer</a><sup>1</sup>&nbsp;
+                 <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>3,4</sup>&nbsp;
+                 <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">Siyu Tang</a><sup>2</sup>&nbsp;
+                 <a href="https://shunsukesaito.github.io/">Shunsuke Saito</a><sup>1</sup>&nbsp;
+               <h5>
+             </div>
+	     <div class="affiliations">
+               <h5>
+                 <sup>1</sup><a href="https://about.meta.com/realitylabs/codecavatars/">Codec Avatars Lab, Meta</a>&nbsp; &nbsp;&nbsp;
+                 <sup>2</sup><a href="https://ethz.ch/en.html">ETH Zürich</a>&nbsp; &nbsp;&nbsp;
+                 <sup>3</sup><a href="https://uni-tuebingen.de/">University of Tübingen</a> &nbsp;&nbsp;
+                 <sup>4</sup><a href="https://tuebingen.ai/">Tübingen AI Center</a>
+               <h5>
+             </div>
+
+             <p class="lead"><i>We present the first drivable full-body avatar model that reconstructs perceptually realistic relightable appearance.</i>
+             </p>
+
+	     <div class="downloads">
+                 <br><h3>
+                 <a class="publink" href="" target="_blank" style="text-decoration: none"> Paper <i class="fa fa-print"></i></a>
+                 <h3>
+	     </div>
+
+           </div>
+	 </div>
+      </header>
+      <section id="about" class="about-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <p class="lead text-justify">
+                  RFGCA learns avatar models from multi-view light stage data. The learned relightable appearance demonstrates convincing intrinsic property decomposition while generalizing well to both point light and environment light. Furthermore, our model captures details such as faces and hands.
+                  </p>
+                  <video width="100%" height="auto" id="home2" playsinline preload muted controls autoplay loop> 
+                    <source type="video/mp4" src="videos/teaser_v2.mp4" /> 
+                  </video>
+                  <br><br>
+                  <h3>Abstract</h3>
+                  <p class="lead text-justify">
+                  We propose Relightable Full-Body Gaussian Codec Avatars, a new approach for modeling relightable full-body avatars with fine-grained details including face and hands.  The unique challenge for relighting full-body avatars lies in the large deformations caused by body articulation and the resulting impact on appearance caused by light transport.  Changes in body pose can dramatically change the orientation of body surfaces with respect to lights, resulting in both local appearance changes due to changes in local light transport functions, as well as non-local changes due to occlusion between body parts.  To address this, we decompose the light transport into local and non-local effects.  Local appearance changes are modeled using learnable zonal harmonics for diffuse radiance transfer.  Unlike spherical harmonics, zonal harmonics are highly efficient to rotate under articulation.  This allows us to learn diffuse radiance transfer in a local coordinate frame, which disentangles the local radiance transfer from the articulation of the body.  To account for non-local appearance changes, we introduce a shadow network that predicts shadows given precomputed incoming irradiance on a base mesh.  This facilitates the learning of non-local shadowing between the body parts.  Finally, we use a deferred shading approach to model specular radiance transfer and better capture reflections and highlights such as eye glints.  We demonstrate that our approach successfully models both the local and non-local light transport required for relightable full-body avatars, with a superior generalization ability under novel illumination conditions and unseen poses.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="video" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Video</h2>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/aX7XVE5z1X8" title="Video Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+		  <br><br>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="preprint" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Preprint</h2>
+                  <br>
+                  Shaofei Wang, Tomas Simon, Igor Santesteban, Timur Bagautdinov, Junxuan Li, Vasu Agrawal, Fabian Prada, Shoou-I Yu, Pace Nalbone, Matt Gramlich, Roman Lubachersky, Chenglei Wu, Javier Romero, Jason Saragih, Michael Zollhoefer, Andreas Geiger, Siyu Tang, Shunsuke Saito
+                  <br>
+                  <a class="publink" target="_blank" href=""><b>Relightable Full-body Gaussian Codec Avatars</b><br></a>
+                  <br><br>
+                  <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">@article{WangARXIV2025,
+         title   = {Relightable Full-body Gaussian Codec Avatars},
+         author  = {Shaofei Wang and Tomas Simon and Igor Santesteban and Timur Bagautdinov and Junxuan Li and Vasu Agrawal and Fabian Prada and Shoou-I Yu and Pace Nalbone and Matt Gramlich and Roman Lubachersky and Chenglei Wu and Javier Romero and Jason Saragih and Michael Zollhoefer and Andreas Geiger and Siyu Tang and Shunsuke Saito},
+         journal = {arXiv.org},
+         year    = {2025},
+         volume  = {}
+}</pre>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+         <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; VLG 2025</p>
+         </div>
+         <!-- /.container -->
+      </footer>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Plugin JavaScript -->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Custom JavaScript for this theme -->
+      <script src="js/scrolling-nav.js"></script>
+   </body>
+</html>
